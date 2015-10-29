@@ -1,0 +1,86 @@
+//Stylesheet for Email Signature Generator
+
+//Developed by: Peter Berki
+//Developed for: Meyer Sound
+
+
+@import "variables"
+@import "mixins"
+
+body
+	background-color: $pureWhite
+
+label,
+legend,
+input,
+form,
+fieldset,
+a
+	font-family: $typeface
+	+borderRadius(4px)
+	font-weight: lighter
+
+label
+	+absoluteZero
+	margin-top: 10px
+	font-size: 14px
+
+input
+	border: $borderStyle
+	display: block
+	margin: 6px 0 6px 0
+	padding: 4px
+	width: 100%
+
+fieldset
+	padding: 1.5em 2em 1.5em
+	border: $borderStyle
+	background-color: $typeWhite
+
+legend
+	font-family: $typeface
+	font-size: 18px
+	text-align: center
+	line-height: 23px
+	width: 40%
+	border: 0
+
+form
+	width: 60%
+
+#form
+	margin-top: 10%
+
+#submit
+	margin-top: 2em
+	padding: 8px 10px 6px 10px
+	background-color: $ms_blue
+	color: $ms_black
+	border: 0
+	float: right
+	width: 120px
+	+boxShadow(0px 0px 0px $ms_blueShade)
+	transition: all 0.5s ease
+	
+#submit:hover
+	+boxShadow(6px 6px 0px $ms_blueShade)
+
+button input
+	font-size: 14px
+	line-height: 19px
+	vertical-align: middle
+
+.ms-nav
+	background-color: $ms_black
+
+#ms-brand a
+	font-size: 20px
+	color: $ms_blue
+
+@media screen and (max-width: 767px)
+
+	form
+		width: 100%
+
+	#form
+		margin-top: 16%
