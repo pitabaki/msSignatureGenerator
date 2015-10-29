@@ -46,10 +46,10 @@ legend
 	border: 0
 
 form
-	width: 60%
+	width: 100%
 
-#form
-	margin-top: 10%
+.padTop
+	margin-top: 8%
 
 #submit
 	margin-top: 2em
@@ -77,10 +77,13 @@ button input
 	font-size: 20px
 	color: $ms_blue
 
+.notSelectable
+	+unSelect
+
 @media screen and (max-width: 767px)
 
 	form
 		width: 100%
 
-	#form
-		margin-top: 16%
+	.padTop
+		margin-top: 8%

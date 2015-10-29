@@ -7,6 +7,16 @@ Developed for: Meyer Sound
 
 */
 
+//replace text function
+function textSwap(id,message){
+	var output = document.getElementById(id);
+	if(output.textContent !== 'undefined'){
+		output.textContent = message;
+	}else{
+		output.innerText = message;
+	}
+}
+
 //Defined init Function (onload, do this)
 function init(){
 	'use strict';
@@ -16,41 +26,29 @@ function init(){
 		number = document.getElementById("number"),
 		email = document.getElementById("email"),
 		form = document.getElementById("form"),
-		br = "<br />",
-		body = document.body,
-		//builds the outer container
-		container = "<table align='center' cellspacing='0' cellpadding='0' width='100%' style='width:100%;'>",
-		closeContainer = "</table>",
-		//builds top portion (dynamic portion)
-		openRow = "<tr><td><table cellspacing='0' cellpadding='0' width='300' style='width:300px;'>",
-		closeRow = "</table></td></tr>",
-		//builds short row
-		openSR = "<tr><td colspan='2'>",
-		closeSR = "</td></tr>",
-		//builds ard breaks
-		brSpace = "<tr><td colspan='2' height='20'></td></tr>",
-		output = document.getElementById("output"),
-		nameHTML = "<span style='margin:0 auto;font-family:Helvetica,Arial,sans-serif;font-weight:normal;font-size:17px;line-height:22px;color:#222222;'>",
-		closeSpanBR = "</span><br />",
-		titleHTML = "<span style='margin:0 auto;font-family:Helvetica,Arial,sans-serif;font-weight:normal;font-size:14px;line-height:18px;color:#222222;'>",
-		closeSpan = "</span>";
+		rplName = "rplName",
+		rplTitle = "rplTitle",
+		rplNum1 = "rplNum1",
+		rplNum2 = "rplNum2",
+		rplEmail = "rplEmail",
+		anchor = document.getElementsByTagName('a'),
+		emHREF = anchor[1];
 
 	//on submit
 	function fluxCapacitate(){
 		name = name.value;
 		position = position.value;
-		number = number.value;
+		number = "T: " + number.value;
 		email = email.value;
-		var rpl = container + openRow + brSpace + openSR + nameHTML + name + closeSpanBR + titleHTML + position + closeSpan + closeSR + closeRow + closeContainer;
-		body.innerHTML = rpl;
-		/*var xhttp = new XMLHttpRequest();
-		xhttp.onreadystatechange = function() {
-			if (xhttp.readyState == 4 && xhttp.status == 200) {
-			body.innerHTML = xhttp.responseText;
-			}
-		};
-		xhttp.open("GET", "www.meyersound.com/email/email_signature/distribution/html/sign.html", true);
-		xhttp.send();*/
+		emHREF.href = "mailto:" + email;
+		if((name !== "") && (position !== "") && (number !== "") && (email !== "")){
+			textSwap(rplName,name);
+			textSwap(rplTitle,position);
+			textSwap(rplNum1,number);
+			textSwap(rplEmail,email);
+		}else{
+			alert("Bad Entry: one of your inputs was incorrect.");
+		}
 		return false;
 	}
 	form.onsubmit = fluxCapacitate;
