@@ -136,11 +136,6 @@ ol li {
       padding: 0 10px;
       margin: 4px auto; }
 
-#numTwo,
-#number2,
-#number2Text {
-  display: none; }
-
 @media screen and (max-width: 767px) {
   .navbar-nav {
     float: right; }

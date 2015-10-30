@@ -23,54 +23,43 @@ function textSwap(id,message){
 function init(){
 	//measure taken in reducing sloppy coding
 	'use strict';
+
 	//Create Variables (DOM Selectors)
 	var name = document.getElementById("name"),
 		position = document.getElementById("position"),
 		number = document.getElementById("number"),
 		number2 = document.getElementById("number2"),
-		phoneNumber = document.getElementById("phoneNumber"),
 		email = document.getElementById("email"),
 		form = document.getElementById("form"),
-		numOne = document.getElementById("numOne"),
-		numTwo = document.getElementById("numTwo"),
-		numSwitch = document.getElementById("numSwitch"),
 		rplName = "rplName",
 		rplTitle = "rplTitle",
 		rplNum1 = "rplNum1",
 		rplNum2 = "rplNum2",
 		rplEmail = "rplEmail",
 		anchor = document.getElementsByTagName("a"),
-		emHREF = anchor[1];
-
-	//when amount of numbers is changed
-	function numChange(){
-		if(numSwitch.selectedIndex === 1){
-			numOne.style.display = "none";
-			phoneNumber.innerText = "Phone Numbers:";
-			number2.style.display = "block";
-			numTwo.style.display = "block";
-		}else{
-			numTwo.style.display = "none";
-			number2.style.display = "none";
-			phoneNumber.innerText = "Phone Number:";
-			numOne.style.display = "block";
-		}
-	}
-
-	numSwitch.onchange = numChange;
+		emHREF = anchor[2];
 
 	//on submit
 	function fluxCapacitate(){
 		name = name.value;
 		position = position.value;
 		number = "T: " + number.value;
+		number2 = "T: " + number2.value;
 		email = email.value;
 		emHREF.href = "mailto:" + email;
-		if((name !== "") && (position !== "") && (number !== "") && (email !== "")){
+		if((name.length > 0) && (position.length >0) && (number.length > 0) && (number2.length > 3) && (email.length > 0)){
+			textSwap(rplName,name);
+			textSwap(rplTitle,position);
+			textSwap(rplNum1,number);
+			textSwap(rplNum2,number2);
+			textSwap(rplEmail,email);
+		}else if((name.length > 0) && (position.length >0) && (number.length > 0) && (number2.length === 3) && (email.length > 0)){
+			console.log(number2.length);
 			textSwap(rplName,name);
 			textSwap(rplTitle,position);
 			textSwap(rplNum1,number);
 			textSwap(rplEmail,email);
+			document.getElementById(rplNum2).style.display = "none";
 		}else{
 			alert("Bad Entry: one of your inputs was incorrect.");
 		}
