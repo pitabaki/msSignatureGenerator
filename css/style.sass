@@ -15,15 +15,19 @@ legend,
 input,
 form,
 fieldset,
+select,
 a
 	font-family: $typeface
 	+borderRadius(4px)
 	font-weight: lighter
+	font-size: 14px
+
+select
+	display: block
 
 label
 	+absoluteZero
 	margin-top: 10px
-	font-size: 14px
 
 input
 	border: $borderStyle
@@ -49,10 +53,10 @@ form
 	width: 100%
 
 .padTop
-	margin-top: 8%
+	margin-top: 4%
 
 #submit
-	margin-top: 2em
+	margin-top: 1.5em
 	padding: 8px 10px 6px 10px
 	background-color: $ms_blue
 	color: $ms_black
@@ -70,18 +74,36 @@ button input
 	line-height: 19px
 	vertical-align: middle
 
+.ms-nav .container
+	height: 100px
 .ms-nav
-	background-color: $ms_black
+	margin: 0 auto
+	background-color: $rich_grey
+	border: 0
+
+.navbar-brand
+	margin: 0 auto
+
+.navbar-title
+	font-size: 19px
+	line-height: 24px
+	display: block
+	margin-top: 20%
 
 #ms-brand a
 	font-size: 20px
 	color: $ms_blue
+	transition: all 0.5s ease
+
+#ms-brand a:hover
+	text-decoration: none
+	color: $ms_blueShade
 
 .notSelectable
 	+unSelect
 
 .instructions
-	margin-top: 4%
+	margin-top: 8%
 	padding: 1.5em 2em 1.5em
 
 .instructions h2,
@@ -90,7 +112,6 @@ button input
 	color: $ms_black
 
 .important
-	display: inline-block
 	border-left: 4px solid $ms_crimson
 	//margin-top: 4px
 	//height: 6px
@@ -98,25 +119,39 @@ button input
 
 .instructions ol
 	+absoluteZero
-	margin-left: 20px
+	margin-left: 30px
 
 ol
 	li
 		font-size: 19px
-		line-height: 25px
+		line-height: 30px
 		ul
 			list-style: none
 			width: 100%
+			margin: 10px auto
 			li
+				display: block
 				font-size: 16px
-				line-height: 22px
+				line-height: 19px
 				padding: 0 10px
 				margin: 4px auto
 
-@media screen and (max-width: 767px)
+#numTwo,
+#number2,
+#number2Text
+	display: none
 
+@media screen and (max-width: 767px)
+	.navbar-nav
+		float: right
+
+	.navbar-title
+		margin-top: 0
+		display: none
 	form
 		width: 100%
 
+	.instructions
+		margin-top: 20%
 	.padTop
 		margin-top: 8%
