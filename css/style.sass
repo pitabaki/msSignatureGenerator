@@ -80,6 +80,39 @@ button input
 .notSelectable
 	+unSelect
 
+.instructions
+	margin-top: 4%
+	padding: 1.5em 2em 1.5em
+
+.instructions h2,
+.instructions li
+	font-family: $typeface
+	color: $ms_black
+
+.important
+	display: inline-block
+	border-left: 4px solid $ms_crimson
+	//margin-top: 4px
+	//height: 6px
+	//background-color: $ms_crimsonTrans
+
+.instructions ol
+	+absoluteZero
+	margin-left: 20px
+
+ol
+	li
+		font-size: 19px
+		line-height: 25px
+		ul
+			list-style: none
+			width: 100%
+			li
+				font-size: 16px
+				line-height: 22px
+				padding: 0 10px
+				margin: 4px auto
+
 @media screen and (max-width: 767px)
 
 	form

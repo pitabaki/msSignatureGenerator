@@ -82,6 +82,36 @@ button input {
   -ms-user-select: none;
   user-select: none; }
 
+.instructions {
+  margin-top: 4%;
+  padding: 1.5em 2em 1.5em; }
+
+.instructions h2,
+.instructions li {
+  font-family: "HelveticaNeue-Light", "HelveticaNeue", Helvetica, Arial, sans-serif;
+  color: #231f20; }
+
+.important {
+  display: inline-block;
+  border-left: 4px solid #9d053b; }
+
+.instructions ol {
+  margin: 0 auto;
+  padding: 0;
+  margin-left: 20px; }
+
+ol li {
+  font-size: 19px;
+  line-height: 25px; }
+  ol li ul {
+    list-style: none;
+    width: 100%; }
+    ol li ul li {
+      font-size: 16px;
+      line-height: 22px;
+      padding: 0 10px;
+      margin: 4px auto; }
+
 @media screen and (max-width: 767px) {
   form {
     width: 100%; }
