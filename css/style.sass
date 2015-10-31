@@ -16,11 +16,15 @@ input,
 form,
 fieldset,
 select,
-a
+a,
+h2
 	font-family: $typeface
 	+borderRadius(4px)
 	font-weight: lighter
 	font-size: 14px
+
+h2
+	font-size: 24px
 
 select
 	display: block
@@ -57,12 +61,14 @@ form
 
 #submit
 	margin-top: 1.5em
-	padding: 8px 10px 6px 10px
+	padding: 6px 10px 8px 10px
 	background-color: $ms_blue
 	color: $ms_black
-	border: 0
+	border: 1px solid $ms_blueShade
 	float: right
 	width: 120px
+	font-size: 16px
+	+borderRadius(8px)
 	+boxShadow(0px 0px 0px $ms_blueShade)
 	transition: all 0.5s ease
 	
@@ -85,8 +91,8 @@ button input
 	margin: 0 auto
 
 .navbar-title
-	font-size: 19px
-	line-height: 24px
+	font-size: 16px
+	line-height: 22px
 	display: block
 	margin-top: 20%
 
@@ -123,16 +129,20 @@ button input
 
 ol
 	li
-		font-size: 19px
-		line-height: 30px
+		font-size: 16px
+		line-height: 22px
 		ul
 			list-style: none
 			width: 100%
-			margin: 10px auto
+			margin: 20px auto
+			padding: 0
+			padding: 20px 30px
+			+borderRadius(8px)
+			background-color: $typeWhite
 			li
 				display: block
-				font-size: 16px
-				line-height: 19px
+				font-size: 14px
+				line-height: 17px
 				padding: 0 10px
 				margin: 4px auto
 

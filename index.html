@@ -34,7 +34,7 @@
 	<div class="container notSelectable1">
 		<div class="row">
 			<div class="col-md-6 instructions">
-				<h2>How to:</h2><br>
+				<h2>How to generate your own employee signature:</h2><br>
 				<ol>
 					<li>
 						Select which client you use in the form below.
@@ -59,10 +59,12 @@
 			<div class="col-sm-12 col-md-6 padTop">
 				<form id="form" action="#">
 			  		<fieldset>
-			  			<!--<select id="numSwitch">
-			  				<option value="One">One Phone Number</option>
-			  				<option value="Two" selected>Two Phone Numbers</option>
-			  			</select>-->
+			  			<select id="numSwitch">
+			  				<option value="outlook10">PC Outlook 10</option>
+			  				<option value="outlook13">PC Outlook 13</option>
+							<option value="outlook11">Mac Outlook 11</option>
+			  				<option value="MacMail">Mac Mail</option>
+			  			</select>
 			    		<label>Full Name:</label><input id="name" type="text" name="name" placeholder="e.g. Tommy Tutone" required />
 			    		<label>Title:</label><input id="position" type="text" name="title" placeholder="e.g. Musician" required />
 			    		<label>Phone Number(s):</label><input id="number" type="text" name="number" placeholder="e.g. (510) 867-5309" />
@@ -97,8 +99,9 @@
 								</tr>
 								<tr>
 									<td colspan="2" style="line-height:21px;">
-										<span id="rplNum1"style="margin:0 auto;font-family:'Helvetica', Helvetica, Arial, sans-serif; font-size:12px; line-height:16px;color:#222222;">T: (510) 555-5555</span><br />
-										<span id="rplNum2" style="margin:0 auto;font-family:'Helvetica', Helvetica, Arial, sans-serif; font-size:12px; line-height:16px;color:#222222;">T: (650) 555-5555</span><br />
+										<span id="rplNum1" style="margin:0 auto;font-family:'Helvetica', Helvetica, Arial, sans-serif; font-size:12px; line-height:16px;color:#222222;">T: (510) 555-5555</span>
+										<span id="break"></span>
+										<span id="rplNum2" style="margin:0 auto;font-family:'Helvetica', Helvetica, Arial, sans-serif; font-size:12px; line-height:16px;color:#222222;"><br />T: (650) 555-5555</span><br />
 										<a style="text-decoration:none;" href="mailto:#"><span id="rplEmail" style="margin:0 auto;font-family:'Helvetica', Helvetica, Arial, sans-serif; font-size:12px; line-height:16px;color:#508ac8;">pberki@meyersound.com</span></a>
 									</td>
 								</tr>

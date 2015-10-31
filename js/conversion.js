@@ -19,6 +19,15 @@ function textSwap(id,message){
 	}
 }
 
+//replace text function
+function inputHTML(id,property){
+	//measure taken in reducing sloppy coding
+	'use strict';
+	var output = document.getElementById(id);
+	output.innerHTML = property;
+	console.log("WORKS");
+}
+
 //Defined init Function (onload, do this)
 function init(){
 	//measure taken in reducing sloppy coding
@@ -31,6 +40,8 @@ function init(){
 		number2 = document.getElementById("number2"),
 		email = document.getElementById("email"),
 		form = document.getElementById("form"),
+		htmlBR = "<br />",
+		breakInsert = document.getElementById("break"),
 		rplName = "rplName",
 		rplTitle = "rplTitle",
 		rplNum1 = "rplNum1",
@@ -38,7 +49,6 @@ function init(){
 		rplEmail = "rplEmail",
 		anchor = document.getElementsByTagName("a"),
 		emHREF = anchor[2];
-
 	//on submit
 	function fluxCapacitate(){
 		name = name.value;
@@ -53,6 +63,7 @@ function init(){
 			textSwap(rplNum1,number);
 			textSwap(rplNum2,number2);
 			textSwap(rplEmail,email);
+			breakInsert.innerHTML = htmlBR;
 		}else if((name.length > 0) && (position.length >0) && (number.length > 0) && (number2.length === 3) && (email.length > 0)){
 			console.log(number2.length);
 			textSwap(rplName,name);
