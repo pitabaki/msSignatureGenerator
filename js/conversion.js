@@ -28,6 +28,15 @@ function inputHTML(id,property){
 	console.log("WORKS");
 }
 
+function fadedBG(id,hue,cloak){
+	//measure taken in reducing sloppy coding
+	'use strict';
+	var bgDiv = document.getElementById(id);
+	bgDiv.style.display = cloak;
+	bgDiv.style.backgroundColor = hue;
+
+}
+
 //Defined init Function (onload, do this)
 function init(){
 	//measure taken in reducing sloppy coding
@@ -40,6 +49,8 @@ function init(){
 		number2 = document.getElementById("number2"),
 		email = document.getElementById("email"),
 		form = document.getElementById("form"),
+		formPos = document.getElementById("padTop"),
+		coloring = "rgba(0,0,0,0.5)",
 		htmlBR = "<br />",
 		breakInsert = document.getElementById("break"),
 		rplName = "rplName",
@@ -49,6 +60,7 @@ function init(){
 		rplEmail = "rplEmail",
 		anchor = document.getElementsByTagName("a"),
 		emHREF = anchor[2];
+
 	//on submit
 	function fluxCapacitate(){
 		name = name.value;
@@ -57,6 +69,8 @@ function init(){
 		number2 = "T: " + number2.value;
 		email = email.value;
 		emHREF.href = "mailto:" + email;
+		formPos.style.left = 0;
+		fadedBG("blackBG", coloring, "block");
 		if((name.length > 0) && (position.length >0) && (number.length > 0) && (number2.length > 3) && (email.length > 0)){
 			textSwap(rplName,name);
 			textSwap(rplTitle,position);

@@ -48,10 +48,20 @@ legend {
   border: 0; }
 
 form {
-  width: 100%; }
+  width: 100%;
+  margin-top: 10%; }
 
-.padTop {
-  margin-top: 4%; }
+#padTop {
+  margin-top: -60%;
+  margin-left: -10%;
+  left: -600px;
+  position: absolute;
+  padding-top: 15%;
+  padding-left: 15%;
+  z-index: 2000;
+  height: 110%;
+  background-color: white;
+  transition: all 0.5s ease; }
 
 #submit {
   margin-top: 1.5em;
@@ -114,7 +124,7 @@ button input {
   user-select: none; }
 
 .instructions {
-  margin-top: 8%;
+  margin-top: 10%;
   padding: 1.5em 2em 1.5em; }
 
 .instructions h2,
@@ -149,6 +159,17 @@ ol li {
       line-height: 17px;
       padding: 0 10px;
       margin: 4px auto; }
+
+#blackBG {
+  position: absolute;
+  margin: 0 auto;
+  padding: 0;
+  margin: -50%;
+  width: 150%;
+  height: 95%;
+  display: none;
+  background-color: transparent;
+  transition: all 0.5s ease; }
 
 @media screen and (max-width: 767px) {
   .navbar-nav {
