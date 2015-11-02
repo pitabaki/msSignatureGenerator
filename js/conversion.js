@@ -25,7 +25,6 @@ function inputHTML(id,property){
 	'use strict';
 	var output = document.getElementById(id);
 	output.innerHTML = property;
-	console.log("WORKS");
 }
 
 function fadedBG(id,hue,cloak){
@@ -50,6 +49,7 @@ function init(){
 		email = document.getElementById("email"),
 		form = document.getElementById("form"),
 		formPos = document.getElementById("padTop"),
+		close = document.getElementById("close-button"),
 		coloring = "rgba(0,0,0,0.5)",
 		htmlBR = "<br />",
 		breakInsert = document.getElementById("break"),
@@ -78,18 +78,30 @@ function init(){
 			textSwap(rplNum2,number2);
 			textSwap(rplEmail,email);
 			breakInsert.innerHTML = htmlBR;
+			init();
 		}else if((name.length > 0) && (position.length >0) && (number.length > 0) && (number2.length === 3) && (email.length > 0)){
-			console.log(number2.length);
 			textSwap(rplName,name);
 			textSwap(rplTitle,position);
 			textSwap(rplNum1,number);
 			textSwap(rplEmail,email);
 			document.getElementById(rplNum2).style.display = "none";
+			init();
 		}else{
 			alert("Bad Entry: one of your inputs was incorrect.");
 		}
 		return false;
 	}
+	//close results
+	function deAtomize(){
+		if(formPos.style.left === "0px"){
+			formPos.style.left = "-600px";
+			fadedBG("blackBG",coloring,"none");
+		}else{
+			alert("FAIL!!!");
+		}
+	}
+
+	close.onclick = deAtomize;
 	form.onsubmit = fluxCapacitate;
 }
 window.onload = init;
