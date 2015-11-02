@@ -137,6 +137,9 @@ button input
 	+absoluteZero
 	margin-left: 30px
 
+.instructionsForm
+	@extend .instructions
+
 ol
 	li
 		font-size: 16px
@@ -166,6 +169,25 @@ ol
 	background-color: rgba(0,0,0,0)
 	transition: all 0.5s ease
 
+@media screen and (max-width: 1200px)
+	#blackBG
+		height: 110%
+		width: 180%
+		margin: -60%
+
+	#padTop
+		margin-top: -65%
+
+@media screen and (max-width: 992px)
+	#padTop
+		left: -1000px
+
+	.instructions
+		margin-top: 14%
+
+	.instructionsForm
+		margin-top: 0
+
 @media screen and (max-width: 767px)
 	.navbar-nav
 		float: right
@@ -173,10 +195,16 @@ ol
 	.navbar-title
 		margin-top: 0
 		display: none
+
 	form
 		width: 100%
 
 	.instructions
 		margin-top: 20%
+
+
+	.instructionsForm
+		margin-top: 0
+
 	.padTop
 		margin-top: 8%
