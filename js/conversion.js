@@ -46,20 +46,25 @@ function init(){
 		position = document.getElementById("position"),
 		number = document.getElementById("number"),
 		number2 = document.getElementById("number2"),
+		number3 = document.getElementById("number3"),
 		email = document.getElementById("email"),
 		form = document.getElementById("form"),
 		formPos = document.getElementById("padTop"),
 		close = document.getElementById("close-button"),
+		blackBG = document.getElementById("blackBG"),
 		coloring = "rgba(0,0,0,0.5)",
 		htmlBR = "<br />",
 		breakInsert = document.getElementById("break"),
+		breakInsert2 = document.getElementById("break2"),
 		rplName = "rplName",
 		rplTitle = "rplTitle",
 		rplNum1 = "rplNum1",
 		rplNum2 = "rplNum2",
+		rplNum3 = "rplNum3",
 		rplEmail = "rplEmail",
 		anchor = document.getElementsByTagName("a"),
-		emHREF = anchor[2];
+		emHREF = anchor[0]; //References signature's # email address
+		//Will replace # with whatever user enters
 
 	//on submit
 	function fluxCapacitate(){
@@ -67,17 +72,29 @@ function init(){
 		position = position.value;
 		number = "T: " + number.value;
 		number2 = "T: " + number2.value;
+		number3 = "T: " + number3.value;
 		email = email.value;
 		emHREF.href = "mailto:" + email;
 		formPos.style.left = 0;
 		fadedBG("blackBG", coloring, "block");
-		if((name.length > 0) && (position.length >0) && (number.length > 0) && (number2.length > 3) && (email.length > 0)){
+		if((name.length > 0) && (position.length >0) && (number.length > 0) && (number2.length > 3) && (number3.length > 3) && (email.length > 0)){
+			textSwap(rplName,name);
+			textSwap(rplTitle,position);
+			textSwap(rplNum1,number);
+			textSwap(rplNum2,number2);
+			textSwap(rplNum3,number3);
+			textSwap(rplEmail,email);
+			breakInsert.innerHTML = htmlBR;
+			breakInsert2.innerHTML = htmlBR;
+			init();
+		}else if((name.length > 0) && (position.length >0) && (number.length > 0) && (number2.length > 3) && (email.length > 0)){
 			textSwap(rplName,name);
 			textSwap(rplTitle,position);
 			textSwap(rplNum1,number);
 			textSwap(rplNum2,number2);
 			textSwap(rplEmail,email);
 			breakInsert.innerHTML = htmlBR;
+			document.getElementById(rplNum3).style.display = "none";
 			init();
 		}else if((name.length > 0) && (position.length >0) && (number.length > 0) && (number2.length === 3) && (email.length > 0)){
 			textSwap(rplName,name);
@@ -85,6 +102,7 @@ function init(){
 			textSwap(rplNum1,number);
 			textSwap(rplEmail,email);
 			document.getElementById(rplNum2).style.display = "none";
+			document.getElementById(rplNum3).style.display = "none";
 			init();
 		}else{
 			alert("Bad Entry: one of your inputs was incorrect.");
@@ -97,11 +115,12 @@ function init(){
 			formPos.style.left = "-600px";
 			fadedBG("blackBG",coloring,"none");
 		}else{
-			alert("FAIL!!!");
+			alert("FAIL!!!");//Just reassurance I haven't completely screwed up
 		}
 	}
 
 	close.onclick = deAtomize;
+	blackBG.onclick = deAtomize;
 	form.onsubmit = fluxCapacitate;
 }
 window.onload = init;

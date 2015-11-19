@@ -33,11 +33,14 @@ label
 	+absoluteZero
 	margin-top: 10px
 
-input
+input,
+select
 	border: $borderStyle
 	display: block
-	margin: 6px 0 6px 0
+	margin: 5px 0
 	padding: 4px
+
+input
 	width: 100%
 
 fieldset
@@ -58,14 +61,15 @@ form
 	margin-top: 10%
 
 #padTop
-	margin-top: -60%
+	margin-top: 0%
 	margin-left: -10%
-	left: -600px
-	position: absolute
-	padding-top: 15%
-	padding-left: 15%
-	z-index: 2000
+	left: -50%
+	position: fixed
+	padding-top: 200px
+	padding-left: 250px
+	z-index: 200000
 	height: 110%
+	width: 640px
 	background-color: white
 	transition: all 0.5s ease
 
@@ -160,13 +164,13 @@ ol
 				margin: 4px auto
 
 #blackBG
-	position: absolute
+	position: fixed
 	+absoluteZero
-	margin: -50%
-	width: 150%
-	height: 95%
+	width: 100%
+	height: 100%
 	display: none
 	background-color: rgba(0,0,0,0)
+	z-index: 55555
 	transition: all 0.5s ease
 
 #close-button
@@ -190,10 +194,6 @@ ol
 	#blackBG
 		height: 110%
 		width: 180%
-		margin: -60%
-
-	#padTop
-		margin-top: -65%
 
 @media screen and (max-width: 992px)
 	#padTop
@@ -225,3 +225,9 @@ ol
 
 	.padTop
 		margin-top: 8%
+
+	#padTop
+		margin-top: 0
+		margin-left: 0
+		padding-left: 40px
+		width: 400px

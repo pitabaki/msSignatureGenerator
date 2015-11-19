@@ -27,11 +27,14 @@ label {
   padding: 0;
   margin-top: 10px; }
 
-input {
+input,
+select {
   border: 1px solid #d5d5d2;
   display: block;
-  margin: 6px 0 6px 0;
-  padding: 4px;
+  margin: 5px 0;
+  padding: 4px; }
+
+input {
   width: 100%; }
 
 fieldset {
@@ -52,14 +55,15 @@ form {
   margin-top: 10%; }
 
 #padTop {
-  margin-top: -60%;
+  margin-top: 0%;
   margin-left: -10%;
-  left: -600px;
-  position: absolute;
-  padding-top: 15%;
-  padding-left: 15%;
-  z-index: 2000;
+  left: -50%;
+  position: fixed;
+  padding-top: 200px;
+  padding-left: 250px;
+  z-index: 200000;
   height: 110%;
+  width: 640px;
   background-color: white;
   transition: all 0.5s ease; }
 
@@ -162,14 +166,14 @@ ol li {
       margin: 4px auto; }
 
 #blackBG {
-  position: absolute;
+  position: fixed;
   margin: 0 auto;
   padding: 0;
-  margin: -50%;
-  width: 150%;
-  height: 95%;
+  width: 100%;
+  height: 100%;
   display: none;
   background-color: transparent;
+  z-index: 55555;
   transition: all 0.5s ease; }
 
 #close-button {
@@ -204,11 +208,7 @@ ol li {
 @media screen and (max-width: 1200px) {
   #blackBG {
     height: 110%;
-    width: 180%;
-    margin: -60%; }
-
-  #padTop {
-    margin-top: -65%; } }
+    width: 180%; } }
 @media screen and (max-width: 992px) {
   #padTop {
     left: -1000px; }
@@ -236,4 +236,10 @@ ol li {
     margin-top: 0; }
 
   .padTop {
-    margin-top: 8%; } }
+    margin-top: 8%; }
+
+  #padTop {
+    margin-top: 0;
+    margin-left: 0;
+    padding-left: 40px;
+    width: 400px; } }
