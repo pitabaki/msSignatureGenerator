@@ -16,12 +16,12 @@
 	-webkit-box-shadow: $var
 	-moz-box-shadow: $var
 
-=unSelect()
-	-moz-user-select: -moz-none
-	-khtml-user-select: none
-	-webkit-user-select: none
-	-ms-user-select: none
-	user-select: none
+=unSelect($var)
+	-moz-user-select: -moz-$var
+	-khtml-user-select: $var
+	-webkit-user-select: $var
+	-ms-user-select: $var
+	user-select: $var
 
 =typeTreatment($family,$size,$lead,$color,$align)
 	font-family: $family

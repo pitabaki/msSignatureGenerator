@@ -17,14 +17,25 @@ form,
 fieldset,
 select,
 a,
-h2
+h2,
+button
 	font-family: $typeface
 	+borderRadius(4px)
 	font-weight: lighter
 	font-size: 14px
+	text-decoration: none
 
+a
+	color: $ms_crimson
+	transition: color 0.5s ease
+
+a:hover,
+a:focus
+	color: $ms_crimsonTrans
+	text-decoration: none
 h2
 	font-size: 24px
+	line-height: 29px
 
 select
 	display: block
@@ -60,6 +71,42 @@ form
 	width: 100%
 	margin-top: 10%
 
+button
+	background-color: $pureWhite
+	color: $ms_blue_second
+	+borderRadius(8px)
+	border: 2px solid $ms_blue_second
+	transition: background-color 0.5s ease
+
+button:hover
+	background-color: $ms_blue_second_hov
+
+.highlight
+	padding: 4px 6px
+	+borderRadius(4px)
+	background-color: $ms_yellow
+
+#copyPaste
+	margin-top: -150px
+	transition: all 0.5s ease
+
+.overhang
+	margin: 0 auto
+	position: fixed
+	height: 100px
+	text-align: center
+	background-color: $ms_ltGrey
+	z-index: 99999999999999
+
+.overhang h4
+	line-height: 24px
+
+.copy_button
+	margin-top: 40px
+	width: 120px
+	height: 40px
+	font-size: 16px
+
 #padTop
 	margin-top: 0%
 	margin-left: -10%
@@ -75,19 +122,20 @@ form
 
 #submit
 	margin-top: 1.5em
-	padding: 6px 10px 8px 10px
-	background-color: $ms_blue
-	color: $ms_black
-	border: 1px solid $ms_blueShade
+	background-color: $pureWhite
+	color: $ms_blue_second
+	border: 1px solid $ms_blue_second
 	float: right
 	width: 120px
+	height: 40px
 	font-size: 16px
 	+borderRadius(8px)
-	+boxShadow(0px 0px 0px $ms_blueShade)
+	//+boxShadow(0px 0px 0px $ms_blueShade)
 	transition: all 0.5s ease
 	
 #submit:hover
-	+boxShadow(6px 6px 0px $ms_blueShade)
+	background-color: $ms_blue_second_hov
+	//+boxShadow(6px 6px 0px $ms_blueShade)
 
 button input
 	font-size: 14px
@@ -120,7 +168,11 @@ button input
 	color: $ms_blueShade
 
 .notSelectable
-	+unSelect
+	margin: 0 auto
+	+unSelect(none)
+
+.selectable
+	+unSelect(all)
 
 .instructions
 	margin-top: 10%
@@ -176,19 +228,19 @@ ol
 #close-button
 	position: absolute
 	+absoluteZero
-	top: 100px
+	top: 140px
 	margin-left: 300px
 	+borderRadius(20px)
 	+typeTreatment($typeface,18px,27px,$pureWhite, center)
 	+perfectSquare(30px)
-	background-color: $ms_blue
+	background-color: $ms_blue_second
 	cursor: pointer
 	z-index: 555555
-	+unSelect
+	+unSelect(none)
 	transition: all 0.5s ease
 
 #close-button:hover
-	background-color: $ms_blueShade
+	background-color: $ms_blue_second_hov
 
 @media screen and (max-width: 1200px)
 	#blackBG
@@ -199,6 +251,8 @@ ol
 	#padTop
 		left: -1000px
 
+	.overhang
+		width: 100%
 	.instructions
 		margin-top: 14%
 
