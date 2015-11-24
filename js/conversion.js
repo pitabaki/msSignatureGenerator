@@ -91,7 +91,7 @@ function init(){
 		position = position.value;
 		number = "T: " + number.value;
 		number2 = "T: " + number2.value;
-		number3 = "T: " + number3.value;
+		number3 = "C: " + number3.value;
 		email = email.value;
 		email = email.toLowerCase();
 		console.log(email);
@@ -99,35 +99,41 @@ function init(){
 		formPos.style.left = 0;
 		fadedBG("blackBG", coloring, "block");
 		whatUp("copyPaste","0", 250);
-		if((name.length > 0) && (position.length >0) && (number.length > 0) && (number2.length > 3) && (number3.length > 3) && (email.length > 0)){
-			textSwap(rplName,name);
-			textSwap(rplTitle,position);
-			textSwap(rplNum1,number);
-			textSwap(rplNum2,number2);
-			textSwap(rplNum3,number3);
-			textSwap(rplEmail,email);
-			breakInsert.innerHTML = htmlBR;
-			breakInsert2.innerHTML = htmlBR;
-			init();
-		}else if((name.length > 0) && (position.length >0) && (number.length > 0) && (number2.length > 3) && (email.length > 0)){
-			textSwap(rplName,name);
-			textSwap(rplTitle,position);
-			textSwap(rplNum1,number);
-			textSwap(rplNum2,number2);
-			textSwap(rplEmail,email);
-			breakInsert.innerHTML = htmlBR;
-			document.getElementById(rplNum3).style.display = "none";
-			init();
-		}else if((name.length > 0) && (position.length >0) && (number.length > 0) && (number2.length === 3) && (email.length > 0)){
-			textSwap(rplName,name);
-			textSwap(rplTitle,position);
-			textSwap(rplNum1,number);
-			textSwap(rplEmail,email);
-			document.getElementById(rplNum2).style.display = "none";
-			document.getElementById(rplNum3).style.display = "none";
-			init();
+		console.log("number2 is " + number);
+		document.getElementById(rplNum2).style.display = "inherit";
+		document.getElementById(rplNum3).style.display = "inherit";
+		if((name.length > 0) && (position.length >0) && (number.length > 3) && (email.length > 0)){
+			if((number2.length > 3) && (number3.length > 3)){
+				textSwap(rplName,name);
+				textSwap(rplTitle,position);
+				textSwap(rplNum1,number);
+				textSwap(rplNum2,number2);
+				textSwap(rplNum3,number3);
+				textSwap(rplEmail,email);
+				breakInsert.innerHTML = htmlBR;
+				//breakInsert2.innerHTML = htmlBR;
+				init();
+			}else if((number.length > 0) && (number2.length > 3) && (number3.length <= 3)){
+				textSwap(rplName,name);
+				textSwap(rplTitle,position);
+				textSwap(rplNum1,number);
+				textSwap(rplNum2,number2);
+				textSwap(rplEmail,email);
+				breakInsert.innerHTML = htmlBR;
+				document.getElementById(rplNum3).style.display = "none";
+				init();
+			}else if((number.length > 0) && (number2.length <= 3) && (number3.length <= 3)){
+				textSwap(rplName,name);
+				textSwap(rplTitle,position);
+				textSwap(rplNum1,number);
+				textSwap(rplEmail,email);
+				breakInsert.innerHTML = htmlBR;
+				document.getElementById(rplNum2).style.display = "none";
+				document.getElementById(rplNum3).style.display = "none";
+				init();
+			}
 		}else{
-			alert("Bad Entry: one of your inputs was incorrect.");
+				alert("Bad Entry: one of your inputs was incorrect.");
 		}
 		return false;
 	}

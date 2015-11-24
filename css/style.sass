@@ -93,13 +93,14 @@ button:hover
 .overhang
 	margin: 0 auto
 	position: fixed
-	height: 100px
+	height: 140px
 	text-align: center
 	background-color: $ms_ltGrey
 	z-index: 99999999999999
 
 .overhang h4
-	line-height: 24px
+	margin: 0 auto
+	line-height: 32px
 
 .copy_button
 	margin-top: 40px
@@ -156,7 +157,7 @@ button input
 	font-size: 16px
 	line-height: 22px
 	display: block
-	margin-top: 20%
+	margin-top: 60px
 
 #ms-brand a
 	font-size: 20px
@@ -199,11 +200,12 @@ button input
 ol
 	li
 		font-size: 16px
-		line-height: 22px
+		line-height: 21px
+		padding-bottom: 10px
 		ul
 			list-style: none
 			width: 100%
-			margin: 20px auto
+			margin: 20px auto 10px auto
 			padding: 0
 			padding: 20px 30px
 			+borderRadius(8px)
@@ -213,7 +215,7 @@ ol
 				font-size: 14px
 				line-height: 17px
 				padding: 0 10px
-				margin: 4px auto
+				margin: 10px auto
 
 #blackBG
 	position: fixed
@@ -242,22 +244,57 @@ ol
 #close-button:hover
 	background-color: $ms_blue_second_hov
 
+.phone-list
+	display: block
+	width: 100%
+
+.phone-ext
+	display: inline
+	width: 20%
+
+.phone-list label,
+.phone-list input,
+.phone-ext label,
+.phone-ext input
+	display: inline
+
+.phone-list input
+	width: 70%
+
+.phone-ext input
+	width: 20%
+
 @media screen and (max-width: 1200px)
 	#blackBG
 		height: 110%
 		width: 180%
 
+	.phone-list input
+		width: 67%
+
+	.phone-ext input
+		width: 20%
 @media screen and (max-width: 992px)
 	#padTop
 		left: -1000px
 
 	.overhang
 		width: 100%
+
 	.instructions
 		margin-top: 14%
 
 	.instructionsForm
 		margin-top: 0
+
+	#form
+		margin: 0 auto
+
+	.phone-list input
+		width: 71%
+
+	.phone-ext input
+		width: 20%
 
 @media screen and (max-width: 767px)
 	.navbar-nav
