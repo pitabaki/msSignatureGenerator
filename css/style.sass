@@ -20,7 +20,7 @@ a,
 h2,
 button
 	font-family: $typeface
-	+borderRadius(4px)
+	+borderRadius(8px)
 	font-weight: lighter
 	font-size: 14px
 	text-decoration: none
@@ -87,20 +87,26 @@ button:hover
 	background-color: $ms_yellow
 
 #copyPaste
-	margin-top: -150px
 	transition: all 0.5s ease
+
+.rowPad
+	margin-right: 1em
 
 .overhang
 	margin: 0 auto
-	position: fixed
-	height: 140px
-	text-align: center
-	background-color: $ms_ltGrey
+	padding: 20px
+	text-align: left
+	background-color: $typeWhite
 	z-index: 99999999999999
+	+borderRadius(8px)
 
+.overhang h2,
 .overhang h4
 	margin: 0 auto
 	line-height: 32px
+
+.overhang h2
+	padding-bottom: 10px
 
 .copy_button
 	margin-top: 40px
@@ -114,7 +120,7 @@ button:hover
 	left: -50%
 	position: fixed
 	padding-top: 200px
-	padding-left: 250px
+	padding-left: 200px
 	z-index: 200000
 	height: 110%
 	width: 640px
@@ -124,19 +130,25 @@ button:hover
 #submit
 	margin-top: 1.5em
 	background-color: $pureWhite
-	color: $ms_blue_second
-	border: 1px solid $ms_blue_second
+	color: $ms_blue
+	border: 1px solid $ms_blue
 	float: right
 	width: 120px
 	height: 40px
 	font-size: 16px
+	text-align: center
 	+borderRadius(8px)
 	//+boxShadow(0px 0px 0px $ms_blueShade)
 	transition: all 0.5s ease
 	
 #submit:hover
-	background-color: $ms_blue_second_hov
+	color: $pureWhite
+	background-color: $ms_blue
 	//+boxShadow(6px 6px 0px $ms_blueShade)
+
+#close-button
+	@extend #submit
+	margin-right: 1em
 
 button input
 	font-size: 14px
@@ -184,6 +196,13 @@ button input
 	font-family: $typeface
 	color: $ms_black
 
+.copyInst
+	@extend .instructions
+	margin-top: 0
+	border: 1px solid $ms_ltGrey
+	background-color: $pureWhite
+	+borderRadius(8px)
+
 .important
 	border-left: 4px solid $ms_crimson
 	//margin-top: 4px
@@ -226,23 +245,6 @@ ol
 	background-color: rgba(0,0,0,0)
 	z-index: 55555
 	transition: all 0.5s ease
-
-#close-button
-	position: absolute
-	+absoluteZero
-	top: 140px
-	margin-left: 300px
-	+borderRadius(20px)
-	+typeTreatment($typeface,18px,27px,$pureWhite, center)
-	+perfectSquare(30px)
-	background-color: $ms_blue_second
-	cursor: pointer
-	z-index: 555555
-	+unSelect(none)
-	transition: all 0.5s ease
-
-#close-button:hover
-	background-color: $ms_blue_second_hov
 
 .phone-list
 	display: block

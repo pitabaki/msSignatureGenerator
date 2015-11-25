@@ -11,9 +11,9 @@ a,
 h2,
 button {
   font-family: "HelveticaNeue", Helvetica, Arial, sans-serif;
-  border-radius: 4px;
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
+  border-radius: 8px;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
   font-weight: lighter;
   font-size: 14px;
   text-decoration: none; }
@@ -86,20 +86,28 @@ button:hover {
   background-color: #f4d422; }
 
 #copyPaste {
-  margin-top: -150px;
   transition: all 0.5s ease; }
+
+.rowPad {
+  margin-right: 1em; }
 
 .overhang {
   margin: 0 auto;
-  position: fixed;
-  height: 140px;
-  text-align: center;
-  background-color: #d5d5d2;
-  z-index: 99999999999999; }
+  padding: 20px;
+  text-align: left;
+  background-color: #eeeded;
+  z-index: 99999999999999;
+  border-radius: 8px;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px; }
 
+.overhang h2,
 .overhang h4 {
   margin: 0 auto;
   line-height: 32px; }
+
+.overhang h2 {
+  padding-bottom: 10px; }
 
 .copy_button {
   margin-top: 40px;
@@ -113,29 +121,34 @@ button:hover {
   left: -50%;
   position: fixed;
   padding-top: 200px;
-  padding-left: 250px;
+  padding-left: 200px;
   z-index: 200000;
   height: 110%;
   width: 640px;
   background-color: white;
   transition: all 0.5s ease; }
 
-#submit {
+#submit, #close-button {
   margin-top: 1.5em;
   background-color: #ffffff;
-  color: #456fc4;
-  border: 1px solid #456fc4;
+  color: #558ac8;
+  border: 1px solid #558ac8;
   float: right;
   width: 120px;
   height: 40px;
   font-size: 16px;
+  text-align: center;
   border-radius: 8px;
   -webkit-border-radius: 8px;
   -moz-border-radius: 8px;
   transition: all 0.5s ease; }
 
-#submit:hover {
-  background-color: #19336a; }
+#submit:hover, #close-button:hover {
+  color: #ffffff;
+  background-color: #558ac8; }
+
+#close-button {
+  margin-right: 1em; }
 
 button input {
   font-size: 14px;
@@ -183,20 +196,29 @@ button input {
   -ms-user-select: all;
   user-select: all; }
 
-.instructions, .instructionsForm {
+.instructions, .copyInst, .instructionsForm {
   margin-top: 10%;
   padding: 1.5em 2em 1.5em; }
 
-.instructions h2, .instructionsForm h2,
+.instructions h2, .copyInst h2, .instructionsForm h2,
 .instructions li,
+.copyInst li,
 .instructionsForm li {
   font-family: "HelveticaNeue", Helvetica, Arial, sans-serif;
   color: #231f20; }
 
+.copyInst {
+  margin-top: 0;
+  border: 1px solid #d5d5d2;
+  background-color: #ffffff;
+  border-radius: 8px;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px; }
+
 .important {
   border-left: 4px solid #9d053b; }
 
-.instructions ol, .instructionsForm ol {
+.instructions ol, .copyInst ol, .instructionsForm ol {
   margin: 0 auto;
   padding: 0;
   margin-left: 30px; }
@@ -232,35 +254,6 @@ ol li {
   background-color: transparent;
   z-index: 55555;
   transition: all 0.5s ease; }
-
-#close-button {
-  position: absolute;
-  margin: 0 auto;
-  padding: 0;
-  top: 140px;
-  margin-left: 300px;
-  border-radius: 20px;
-  -webkit-border-radius: 20px;
-  -moz-border-radius: 20px;
-  font-family: "HelveticaNeue", Helvetica, Arial, sans-serif;
-  font-size: 18px;
-  line-height: 27px;
-  color: #ffffff;
-  text-align: center;
-  width: 30px;
-  height: 30px;
-  background-color: #456fc4;
-  cursor: pointer;
-  z-index: 555555;
-  -moz-user-select: -moz- none;
-  -khtml-user-select: none;
-  -webkit-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  transition: all 0.5s ease; }
-
-#close-button:hover {
-  background-color: #19336a; }
 
 .phone-list {
   display: block;
@@ -299,7 +292,7 @@ ol li {
   .overhang {
     width: 100%; }
 
-  .instructions, .instructionsForm {
+  .instructions, .copyInst, .instructionsForm {
     margin-top: 14%; }
 
   .instructionsForm {
@@ -324,7 +317,7 @@ ol li {
   form {
     width: 100%; }
 
-  .instructions, .instructionsForm {
+  .instructions, .copyInst, .instructionsForm {
     margin-top: 20%; }
 
   .instructionsForm {

@@ -24,7 +24,26 @@
 <!-- Signature -->
 
 			<div id="padTop" class="col-sm-12 col-md-6 notSelectable">
-				<div id="close-button" class="notSelectable">x</div>
+				<div class="row rowPad">
+					<div id="copyPaste" class="overhang col-md-12">
+						<h2>Copy your signature</h2>
+						<div class="copyInst">
+							<h4>
+								For Mac:
+							</h4>
+							<p>
+								Press <span class="highlight">command + a</span> then <span class="highlight">command + c</span>
+							</p>
+							<h4>
+								For PC:
+							</h4>
+							<p>
+								Press <span class="highlight">control + a</span> then <span class="highlight">control + c</span>.
+							</p>
+						</div>
+					</div>
+				</div>
+				<input id="close-button" type="submit" value="return" />
 				<div id="testing" class="selectable">
 					<table align="left" cellspacing="0" cellpadding="0" width="100%" style="width:100%;">
 						<tr>
@@ -37,7 +56,7 @@
 										<td colspan="2">
 											<span id="rplName" style="margin:0 auto;font-family:'Helvetica',Helvetica,Arial,sans-serif;font-weight:normal;font-size:17px;line-height:22px;color:#222222;">Full Name</span>
 											<br />
-											<span id="rplTitle" style="margin:0 auto;font-family:'Helvetica',Helvetica,Arial,sans-serif;font-weight:normal;font-size:14px;line-height:18px;color:#222222;">Title, Region (optional)</span>
+											<span id="rplTitle" style="margin:0 auto;font-family:'Helvetica',Helvetica,Arial,sans-serif;font-weight:normal;font-size:14px;line-height:22px;color:#222222;">Title, Region (optional)</span>
 										</td>
 									</tr>
 									<tr>
@@ -47,10 +66,10 @@
 									</tr>
 									<tr>
 										<td colspan="2" style="line-height:21px;">
-											<span id="rplNum1" style="margin:0 auto;font-family:'Helvetica', Helvetica, Arial, sans-serif; font-size:12px; line-height:16px;color:#222222;">T: (510) 555-5555</span><span id="break"></span>
-											<span id="rplNum2" style="margin:0 auto;font-family:'Helvetica', Helvetica, Arial, sans-serif; font-size:12px; line-height:16px;color:#222222;">T: (650) 555-5555 <span id="rplExt1">x555</span></span><span id="break2"></span>
-											<span id="rplNum3" style="margin:0 auto;font-family:'Helvetica', Helvetica, Arial, sans-serif; font-size:12px; line-height:16px;color:#222222;">C: (650) 555-5555 <span id="rplExt2">x555</span></span>
-											<a style="text-decoration:none;" href="mailto:#"><span id="rplEmail" style="margin:0 auto;font-family:'Helvetica', Helvetica, Arial, sans-serif; font-size:12px; line-height:16px;color:#508ac8;">pberki@meyersound.com</span></a>
+											<span id="rplNum1" style="margin:0 auto;font-family:'Helvetica', Helvetica, Arial, sans-serif; font-size:14px; line-height:18px;color:#222222;">T: (510) 555-5555</span><span style="margin:0 auto;font-family:'Helvetica', Helvetica, Arial, sans-serif; font-size:14px; line-height:18px;color:#222222;" id="rplExt1">x555</span><span id="break"></span>
+											<span id="rplNum2" style="margin:0 auto;font-family:'Helvetica', Helvetica, Arial, sans-serif; font-size:14px; line-height:18px;color:#222222;">T: (650) 555-5555</span><span style="margin:0 auto;font-family:'Helvetica', Helvetica, Arial, sans-serif; font-size:14px; line-height:18px;color:#222222;" id="rplExt2">x555</span><span id="break2"></span>
+											<span id="rplNum3" style="margin:0 auto;font-family:'Helvetica', Helvetica, Arial, sans-serif; font-size:14px; line-height:18px;color:#222222;">C: (650) 555-5555</span><span id="break3"></span>
+											<a style="text-decoration:none;" href="mailto:#"><span id="rplEmail" style="margin:0 auto;font-family:'Helvetica', Helvetica, Arial, sans-serif; font-size:14px; line-height:18px;color:#508ac8;">pberki@meyersound.com</span></a>
 										</td>
 									</tr>
 									<tr>
@@ -77,9 +96,9 @@
 									</tr>
 									<tr>
 										<td colspan="2" style="line-height:21px;">
-											<p style="margin:0 auto;font-family:'Helvetica', Helvetica, Arial, sans-serif; font-size:12px; line-height:15px;color:#222222;">2832 San Pablo Ave.<br />Berkeley, CA 94702<br /></p>
-											<p style="margin:0 auto;font-family:'Helvetica', Helvetica, Arial, sans-serif; font-size:12px; line-height:15px;color:#222222;">T: +1 510 486.1166</p>
-											<a href="www.meyersound.com" target="_blank" style="margin:0 auto;font-family:'Helvetica', Helvetica, Arial, sans-serif; font-size:12px; line-height:32px;color:#508ac8;text-decoration:none;">www.meyersound.com</a>
+											<p style="margin:0 auto;font-family:'Helvetica', Helvetica, Arial, sans-serif; font-size:14px; line-height:18px;color:#222222;">2832 San Pablo Ave.<br />Berkeley, CA 94702<br /></p>
+											<p style="margin:0 auto;font-family:'Helvetica', Helvetica, Arial, sans-serif; font-size:14px; line-height:18px;color:#222222;">T: +1 510 486.1166</p>
+											<a href="www.meyersound.com" target="_blank" style="margin:0 auto;font-family:'Helvetica', Helvetica, Arial, sans-serif; font-size:14px; line-height:32px;color:#508ac8;text-decoration:none;">www.meyersound.com</a>
 										</td>
 									</tr>
 									<tr>
@@ -108,13 +127,13 @@
 	<div class="row notSelectable">
 		<div id="blackBG" class="col-md-12"></div>
 	</div>
-	<div class="row notSelectable">
+	<!--<div class="row notSelectable">
 		<div id="copyPaste" class="overhang col-md-12">
 			<h2>To Copy</h2>
 			<h4>Mac: press <span class="highlight">command + a</span>, <span class="highlight">command + c</span></h4>
 			<h4>PC: press <span class="highlight">control + a</span>, <span class="highlight">control + c</span>.</h4>
 		</div>
-	</div>
+	</div>-->
 	<nav class="navbar navbar-default navbar-fixed-top ms-nav notSelectable">
 		<div class="container">
 		    <div class="navbar-header">
@@ -172,13 +191,13 @@
 			  				<option value="MacMail">Mac Mail</option>
 			  			</select>
 			    		<label>Full Name:</label>
-			    		<input id="name" type="text" name="name" placeholder="e.g. Tommy Tutone" required />
+			    		<input id="name" type="text" name="name" placeholder="ex: Tommy Tutone" required />
 			    		<label>Job Title:</label>
-			    		<input id="position" type="text" name="title" placeholder="e.g. Musician" required />
+			    		<input id="position" type="text" name="title" placeholder="ex: Musician" required />
 			    		<label>Phone Number(s):</label>
 			    		<div class="phone-list">
 				    		<label>T:</label>
-				    		<input id="number" type="text" name="number" placeholder="ex: +1 510.867.5309" required />
+				    		<input id="number" type="text" name="number" placeholder="ex: +1 510.867.5309" />
 					    	<div class="phone-ext">
 					    		<label>ext:</label>
 					    		<input id="ext1" type="text" name="number" placeholder="ex: 135" />
@@ -194,16 +213,17 @@
 				    	</div>
 				    	<div class="phone-list cell">
 				    		<label>C:</label>
-				    		<input id="number3" type="text" name="number3" placeholder="example: +49 151 5555 5555" />
+				    		<input id="number3" type="text" name="number3" placeholder="ex: +49 151 5555 5555" />
 			    		</div>
 			    		<label>Email Address:</label>
-			    		<input id="email" type="text" name="email" placeholder="e.g. jenny@gmail.com" required />
+			    		<input id="email" type="text" name="email" placeholder="ex: jenny@gmail.com" required />
 			    		<input id="submit" type="submit" value="submit" />
 			  		</fieldset>
 				</form>
 			</div>
 		</div>
 	</div>
+	<script type="text/javascript" src="js/funcs.js"></script>
 	<script type="text/javascript" src="js/conversion.js"></script>
 </body>
 </html>
