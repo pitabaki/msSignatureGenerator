@@ -120,7 +120,7 @@ button:hover {
   margin-left: -10%;
   left: -50%;
   position: fixed;
-  padding-top: 200px;
+  padding-top: 60px;
   padding-left: 200px;
   z-index: 200000;
   height: 110%;
@@ -148,7 +148,9 @@ button:hover {
   background-color: #558ac8; }
 
 #close-button {
-  margin-right: 1em; }
+  margin-right: 1em;
+  margin-top: 0;
+  margin-bottom: 1em; }
 
 button input {
   font-size: 14px;

@@ -7,6 +7,16 @@ Developed for: Meyer Sound
 
 */
 
+
+//return document id
+
+function key(id){
+	'use strict';
+	if(typeof id === "string"){
+		return document.getElementById(id);
+	}
+}
+
 //replace text function
 function textSwap(id,message){
 	//measure taken in reducing sloppy coding
@@ -20,11 +30,20 @@ function textSwap(id,message){
 }
 
 //replace text function
-function inputHTML(id,property){
+function replHTML(id,property){
 	//measure taken in reducing sloppy coding
 	'use strict';
-	var output = document.getElementById(id);
-	output.innerHTML = property;
+
+	if((id.id === "undefined") && (typeof property === "string")){
+		console.log("replHTML if");
+		var output = document.getElementById(id);
+		output.innerHTML = property;
+	}else if((id.id !== "undefined") && (typeof property === "string")){
+		console.log("replHTML else if");
+		id.innerHTML = property;
+	}else{
+		console.log("Fail!!! Function replHTML failed to pass variables presented to it.");
+	}
 }
 
 function fadedBG(id,hue,cloak,time){
