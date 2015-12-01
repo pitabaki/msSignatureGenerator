@@ -85,3 +85,14 @@ function extSwap(id,message){
 		textSwap(id,message);
 	}
 }
+
+
+function dropD(id,link){
+	"use strict";
+	if((typeof id === "string") && (typeof message === "string")){
+		var hvyMtl = document.getElementById(id);
+		hvyMtl.href = link;
+	}else{
+		console.log("Link passed to dropD was not a string.");
+	}
+}

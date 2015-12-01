@@ -7,10 +7,21 @@ Developed for: Meyer Sound
 
 */
 
+function emailClients(name,link,value){
+	this.name = name;
+	this.link = link;
+	this.value = value;
+}
+
 //Defined init Function (onload, do this)
 function init(){
 	//measure taken in reducing sloppy coding
 	'use strict';
+
+	var outlook10 = new emailClients("Outlook 2010", "https://www.youtube.com/watch?v=dQw4w9WgXcQ","outlook10"),
+		outlook13 = new emailClients("Outlook 2013", "https://www.youtube.com/watch?v=dQw4w9WgXcQ", "outlook13"),
+		outlook11 = new emailClients("Outlook 2011", "https://www.youtube.com/watch?v=dQw4w9WgXcQ", "outlook11"),
+		macMail = new emailClients("Mac Mail", "https://www.youtube.com/watch?v=dQw4w9WgXcQ", "MacMail");
 
 	//Create Variables (DOM Selectors)
 	var name = key("name"),
@@ -31,6 +42,7 @@ function init(){
 		breakInsert = key("break"),
 		breakInsert2 = key("break2"),
 		breakInsert3 = key("break3"),
+		client = key("client"),
 		rplName = "rplName",
 		rplTitle = "rplTitle",
 		rplNum1 = "rplNum1",
@@ -40,12 +52,18 @@ function init(){
 		rplExt2 = "rplExt2",
 		rplEmail = "rplEmail",
 		anchor = document.getElementsByTagName("a"),
-		emHREF = anchor[0]; //References signature's # email address
-
-		var stuff = '';
-		console.log("name".id);
+		clientLink = key("client-link"),
+		emHREF = anchor[1]; //References signature's # email address
+		//console.log(emHREF);
+		//console.log(numSwitch[selection].value);
+		var stuff = "";
 	//on submit
 	function fluxCapacitate(){
+
+		//captures client selected
+		var numSwitch = key("numSwitch"),
+		selection = numSwitch.selectedIndex;
+
 		name = name.value;
 		position = position.value;
 		email = email.value;//Replaces # with whatever user enters
@@ -64,6 +82,40 @@ function init(){
 		document.getElementById(rplNum1).style.display = "inline";
 		document.getElementById(rplNum2).style.display = "inline";
 		document.getElementById(rplNum3).style.display = "inline";
+
+
+		switch(numSwitch[selection].value){
+			case outlook10.value:
+				textSwap("client",outlook10.name);
+				dropD("client-link",outlook10.link);
+				break;
+			case outlook13.value:
+				textSwap("client",outlook13.name);
+				dropD("client-link",outlook13.link);
+				break;
+			case outlook11.value:
+				textSwap("client",outlook11.name);
+				dropD("client-link",outlook11.link);
+				break;
+			case macMail.value:
+				textSwap("client",macMail.name);
+				dropD("client-link",macMail.link);
+				break;
+			default:
+				console.log("doesn't work!");
+				break;
+		}
+		/*
+		//////////////////////////////////////////////////////////
+
+		if/else chain that:
+
+		checks for empty inputs
+		relays what information was entered into the inputs
+
+		//////////////////////////////////////////////////////////
+		*/
+
 		//if name, position, number, and email are all valid entries
 		if((name.length > 0) && (position.length >0) && (email.length > 0)){
 
