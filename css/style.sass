@@ -9,6 +9,18 @@
 
 body
 	background-color: $pureWhite
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+a
+	font-family: "HelveticaNeue", Helvetica, Arial, sans-serif
+
+p
+	+absoluteZero
 
 label,
 legend,
@@ -26,19 +38,26 @@ button
 	text-decoration: none
 
 a
-	color: $ms_crimson
+	color: $ms_blue
 	transition: color 0.5s ease
 
 a:hover,
 a:focus
-	color: $ms_crimsonTrans
+	color: $ms_blueShade
 	text-decoration: none
 h2
 	font-size: 24px
 	line-height: 29px
 
-select
+select,
+iframe
 	display: block
+
+iframe
+	+absoluteZero
+	display: absolute
+	float: right
+	margin-top: 140px
 
 label
 	+absoluteZero
@@ -81,6 +100,22 @@ button
 button:hover
 	background-color: $ms_blue_second_hov
 
+.video-overlay
+	position: absolute
+	width: 100%
+	z-index: 22222222222222
+
+.video-overlay iframe
+	margin-right: 10%
+
+#videoOverlay
+	display: none
+	transition: all 0.5s ease
+
+#vid-tut
+	opacity: 0
+	transition: all 0.5s ease
+	
 .highlight
 	padding: 4px 6px
 	+borderRadius(4px)
@@ -116,14 +151,14 @@ button:hover
 
 #padTop
 	margin-top: 0%
-	margin-left: -10%
+	margin-left: 0%
 	left: -50%
 	position: fixed
 	padding-top: 60px
-	padding-left: 200px
+	padding-left: 100px
 	z-index: 200000
 	height: 110%
-	width: 640px
+	width: 35%
 	background-color: white
 	transition: all 0.5s ease
 
@@ -278,15 +313,23 @@ ol
 
 	.phone-ext input
 		width: 20%
+
+	#padTop
+		width: 50%
+
 @media screen and (max-width: 992px)
 	#padTop
 		left: -1000px
+		width: 100%
 
 	.overhang
 		width: 100%
 
 	.instructions
 		margin-top: 14%
+
+	.copyInst
+		margin-top: 0
 
 	.instructionsForm
 		margin-top: 0
@@ -325,4 +368,6 @@ ol
 		margin-top: 0
 		margin-left: 0
 		padding-left: 40px
-		width: 400px
+
+	.copyInst
+		margin-top: 0

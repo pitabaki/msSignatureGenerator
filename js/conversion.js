@@ -18,10 +18,10 @@ function init(){
 	//measure taken in reducing sloppy coding
 	'use strict';
 
-	var outlook10 = new emailClients("Outlook 2010", "https://www.youtube.com/watch?v=dQw4w9WgXcQ","outlook10"),
-		outlook13 = new emailClients("Outlook 2013", "https://www.youtube.com/watch?v=dQw4w9WgXcQ", "outlook13"),
-		outlook11 = new emailClients("Outlook 2011", "https://www.youtube.com/watch?v=dQw4w9WgXcQ", "outlook11"),
-		macMail = new emailClients("Mac Mail", "https://www.youtube.com/watch?v=dQw4w9WgXcQ", "MacMail");
+	var outlook10 = new emailClients("Outlook 2010", "https://www.youtube.com/watch?v=0FqFQep33Ec","outlook10"),
+		outlook13 = new emailClients("Outlook 2013", "https://www.youtube.com/watch?v=0FqFQep33Ec", "outlook13"),
+		outlook11 = new emailClients("Outlook 2011", "https://www.youtube.com/watch?v=0FqFQep33Ec", "outlook11"),
+		macMail = new emailClients("Mac Mail", "https://www.youtube.com/watch?v=_hlniA7-Xzg", "MacMail");
 
 	//Create Variables (DOM Selectors)
 	var name = key("name"),
@@ -37,11 +37,14 @@ function init(){
 		close = key("close-button"),
 		blackBG = key("blackBG"),
 		coloring = "rgba(0,0,0,0.75)",
-		erasing = "rgba(0,0,0,0)",
+		coloring2 = "rgba(0, 0, 0, 1)",
+		erasing = "rgba(0, 0, 0, 0)",
 		htmlBR = "<br />",
 		breakInsert = key("break"),
 		breakInsert2 = key("break2"),
 		breakInsert3 = key("break3"),
+		vidOverlay = key("videoOverlay"),
+		vidTut = key("vid-tut"),
 		client = key("client"),
 		rplName = "rplName",
 		rplTitle = "rplTitle",
@@ -56,7 +59,10 @@ function init(){
 		emHREF = anchor[1]; //References signature's # email address
 		//console.log(emHREF);
 		//console.log(numSwitch[selection].value);
+		vidTut.style.opacity = "0";
+		vidOverlay.style.display = "none";
 		var stuff = "";
+		console.log(typeof macMail.link);
 	//on submit
 	function fluxCapacitate(){
 
@@ -87,24 +93,27 @@ function init(){
 		switch(numSwitch[selection].value){
 			case outlook10.value:
 				textSwap("client",outlook10.name);
-				dropD("client-link",outlook10.link);
+				dropD("vid-tut",outlook10.link);
 				break;
 			case outlook13.value:
 				textSwap("client",outlook13.name);
-				dropD("client-link",outlook13.link);
+				dropD("vid-tut",outlook13.link);
 				break;
 			case outlook11.value:
 				textSwap("client",outlook11.name);
-				dropD("client-link",outlook11.link);
+				dropD("vid-tut",outlook11.link);
 				break;
 			case macMail.value:
 				textSwap("client",macMail.name);
-				dropD("client-link",macMail.link);
+				dropD("vid-tut",macMail.link);
 				break;
 			default:
 				console.log("doesn't work!");
 				break;
 		}
+
+		var testingLink = document.getElementById("client-link");
+		console.log(testingLink.href);
 		/*
 		//////////////////////////////////////////////////////////
 
@@ -244,10 +253,23 @@ function init(){
 	//close results
 	function deAtomize(){
 		if(formPos.style.left === "0px"){
-			formPos.style.left = "-600px";
+			formPos.style.left = "-50%";
 			fadedBG("blackBG",erasing,"none",500);
+			vidIllum("videoOverlay","vid-tut","0","none",500);
 		}else{
 			alert("FAIL!!!");//Just reassurance I haven't completely screwed up
+		}
+	}
+	console.log(vidTut.style.opacity);
+	function miTe(){
+		if((vidTut.style.opacity  === "0") && (vidOverlay.style.display === "none")){
+			console.log("this is vidOverlay (if): " + vidOverlay);
+			vidIllum("videoOverlay","vid-tut","1","block",500);
+			return false;
+		}else{
+			console.log("this is vidOverlay (else): " + vidOverlay);
+			vidIllum("videoOverlay","vid-tut","0","none",500);
+			return false;
 		}
 	}
 	/*function sigCopy(){
@@ -256,5 +278,7 @@ function init(){
 	close.onclick = deAtomize;
 	blackBG.onclick = deAtomize;
 	form.onsubmit = fluxCapacitate;
+	clientLink.onclick = miTe;
+
 }
 window.onload = init;

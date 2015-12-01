@@ -63,6 +63,16 @@ function fadedBG(id,hue,cloak,time){
 	}
 }
 
+function vidIllum(id,name,opac,cloak,time){
+	'use strict';
+	var bgDiv = document.getElementById(id);
+	var innerDiv = document.getElementById(name);
+	bgDiv.style.display = cloak;
+	setTimeout(function(){
+		innerDiv.style.opacity = opac;
+	},50);
+}
+
 function whatUp(id,position,time){
 	//measure taken in reducing sloppy coding
 	'use strict';
@@ -86,12 +96,11 @@ function extSwap(id,message){
 	}
 }
 
-
 function dropD(id,link){
 	"use strict";
-	if((typeof id === "string") && (typeof message === "string")){
+	if((typeof id === "string") && (typeof link === "string")){
 		var hvyMtl = document.getElementById(id);
-		hvyMtl.href = link;
+		hvyMtl.src = link;
 	}else{
 		console.log("Link passed to dropD was not a string.");
 	}
