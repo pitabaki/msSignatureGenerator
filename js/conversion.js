@@ -37,7 +37,6 @@ function init(){
 		close = key("close-button"),
 		blackBG = key("blackBG"),
 		coloring = "rgba(0,0,0,0.75)",
-		coloring2 = "rgba(0, 0, 0, 1)",
 		erasing = "rgba(0, 0, 0, 0)",
 		htmlBR = "<br />",
 		breakInsert = key("break"),
@@ -46,23 +45,22 @@ function init(){
 		vidOverlay = key("videoOverlay"),
 		vidTut = key("vid-tut"),
 		client = key("client"),
-		rplName = "rplName",
-		rplTitle = "rplTitle",
-		rplNum1 = "rplNum1",
-		rplNum2 = "rplNum2",
-		rplNum3 = "rplNum3",
-		rplExt1 = "rplExt1",
-		rplExt2 = "rplExt2",
-		rplEmail = "rplEmail",
+		rplName = key("rplName"),
+		rplTitle = key("rplTitle"),
+		rplNum1 = key("rplNum1"),
+		rplNum2 = key("rplNum2"),
+		rplNum3 = key("rplNum3"),
+		rplExt1 = key("rplExt1"),
+		rplExt2 = key("rplExt2"),
+		rplEmail = key("rplEmail"),
 		anchor = document.getElementsByTagName("a"),
 		clientLink = key("client-link"),
 		emHREF = anchor[1]; //References signature's # email address
 		//console.log(emHREF);
 		//console.log(numSwitch[selection].value);
+		console.log(vidTut);
 		vidTut.style.opacity = "0";
 		vidOverlay.style.display = "none";
-		var stuff = "";
-		console.log(typeof macMail.link);
 	//on submit
 	function fluxCapacitate(){
 
@@ -85,26 +83,26 @@ function init(){
 		formPos.style.left = 0;
 		fadedBG("blackBG", coloring, "block");
 		whatUp("copyPaste","0", 250);
-		document.getElementById(rplNum1).style.display = "inline";
-		document.getElementById(rplNum2).style.display = "inline";
-		document.getElementById(rplNum3).style.display = "inline";
+		rplNum1.style.display = "inline";
+		rplNum2.style.display = "inline";
+		rplNum3.style.display = "inline";
 
-
+		
 		switch(numSwitch[selection].value){
 			case outlook10.value:
-				textSwap("client",outlook10.name);
+				textSwap(client,outlook10.name);
 				dropD("vid-tut",outlook10.link);
 				break;
 			case outlook13.value:
-				textSwap("client",outlook13.name);
+				textSwap(client,outlook13.name);
 				dropD("vid-tut",outlook13.link);
 				break;
 			case outlook11.value:
-				textSwap("client",outlook11.name);
+				textSwap(client,outlook11.name);
 				dropD("vid-tut",outlook11.link);
 				break;
 			case macMail.value:
-				textSwap("client",macMail.name);
+				textSwap(client,macMail.name);
 				dropD("vid-tut",macMail.link);
 				break;
 			default:
@@ -113,7 +111,6 @@ function init(){
 		}
 
 		var testingLink = document.getElementById("client-link");
-		console.log(testingLink.href);
 		/*
 		//////////////////////////////////////////////////////////
 
@@ -141,9 +138,9 @@ function init(){
 			if((number.length > 3) && (number2.length > 3) && (number3.length > 3)){
 
 				//All other text swaps
-				textSwap(rplNum1,number);
-				textSwap(rplNum2,number2);
-				textSwap(rplNum3,number3);
+				textSwap(rplNum1, number);
+				textSwap(rplNum2, number2);
+				textSwap(rplNum3, number3);
 
 				//insert <br />
 				replHTML(breakInsert, htmlBR);
@@ -163,15 +160,15 @@ function init(){
 				//insert <br />
 				replHTML(breakInsert, htmlBR);
 				replHTML(breakInsert2, htmlBR);
-				replHTML(breakInsert3, '');
+				replHTML(breakInsert3,'');
 
 				//Turn off the 3rd number
-				document.getElementById(rplNum3).style.display = "none";
+				rplNum3.style.display = "none";
 
 				//Reload init()
 				init();
 
-			//if the first telephone number has been entered but not the cell
+			//if the first telephone number has been entered but not the second number
 			}else if((number.length > 3) && (number2.length <= 3) && (number3.length > 3)){
 
 				//All other text swaps
@@ -181,11 +178,11 @@ function init(){
 
 				//insert <br />
 				replHTML(breakInsert, htmlBR);
-				replHTML(breakInsert2, '');
+				replHTML(breakInsert2,'');
 				replHTML(breakInsert3, htmlBR);
 
 				//Turn off the 2nd number
-				document.getElementById(rplNum2).style.display = "none";
+				rplNum2.style.display = "none";
 
 				//Reload init()
 				init();
@@ -198,12 +195,30 @@ function init(){
 
 				//insert <br />
 				replHTML(breakInsert, htmlBR);
-				replHTML(breakInsert2, '');
+				replHTML(breakInsert2,'');
+				replHTML(breakInsert3,'');
+
+				//Turn off 2nd and 3rd numbers
+				rplNum2.style.display = "none";
+				rplNum3.style.display = "none";
+
+				//Reload init()
+				init();
+
+			//if only the second number has been entered
+			}else if((number.length > 3) && (number2.length <= 3) && (number3.length <= 3)){
+
+				//All other text swaps
+				textSwap(rplNum2,number2);
+
+				//insert <br />
+				replHTML(breakInsert, '');
+				replHTML(breakInsert2, htmlBR);
 				replHTML(breakInsert3, '');
 
 				//Turn off 2nd and 3rd numbers
-				document.getElementById(rplNum2).style.display = "none";
-				document.getElementById(rplNum3).style.display = "none";
+				rplNum1.style.display = "none";
+				rplNum3.style.display = "none";
 
 				//Reload init()
 				init();
@@ -212,7 +227,7 @@ function init(){
 			}else if((number.length <= 3) && (number2.length <= 3) && (number3.length > 3)){
 
 				//All other text swaps
-				textSwap(rplNum1,number);
+				textSwap(rplNum3,number3);
 
 				//insert <br />
 				replHTML(breakInsert, '');
@@ -220,8 +235,8 @@ function init(){
 				replHTML(breakInsert3, htmlBR);
 
 				//Turn off 2nd and 3rd numbers
-				document.getElementById(rplNum1).style.display = "none";
-				document.getElementById(rplNum2).style.display = "none";
+				rplNum1.style.display = "none";
+				rplNum2.style.display = "none";
 
 				//Reload init()
 				init();
@@ -238,9 +253,9 @@ function init(){
 				replHTML(breakInsert3, '');
 
 				//Turn off 2nd and 3rd numbers
-				document.getElementById(rplNum1).style.display = "none";
-				document.getElementById(rplNum2).style.display = "none";
-				document.getElementById(rplNum3).style.display = "none";
+				rplNum1.style.display = "none";
+				rplNum2.style.display = "none";
+				rplNum3.style.display = "none";
 
 				//Reload init()
 				init();
@@ -253,14 +268,13 @@ function init(){
 	//close results
 	function deAtomize(){
 		if(formPos.style.left === "0px"){
-			formPos.style.left = "-50%";
+			formPos.style.left = "-100%";
 			fadedBG("blackBG",erasing,"none",500);
 			vidIllum("videoOverlay","vid-tut","0","none",500);
 		}else{
 			alert("FAIL!!!");//Just reassurance I haven't completely screwed up
 		}
 	}
-	console.log(vidTut.style.opacity);
 	function miTe(){
 		if((vidTut.style.opacity  === "0") && (vidOverlay.style.display === "none")){
 			console.log("this is vidOverlay (if): " + vidOverlay);
@@ -272,9 +286,8 @@ function init(){
 			return false;
 		}
 	}
-	/*function sigCopy(){
 
-	}*/
+	//events
 	close.onclick = deAtomize;
 	blackBG.onclick = deAtomize;
 	form.onsubmit = fluxCapacitate;

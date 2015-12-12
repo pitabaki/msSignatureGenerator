@@ -11,17 +11,17 @@ Developed for: Meyer Sound
 //return document id
 
 function key(id){
-	'use strict';
-	if(typeof id === "string"){
-		return document.getElementById(id);
+		'use strict';
+		if(typeof id === "string"){
+			return document.getElementById(id);
+		}
 	}
-}
 
 //replace text function
 function textSwap(id,message){
 	//measure taken in reducing sloppy coding
 	'use strict';
-	var output = document.getElementById(id);
+	var output = id;
 	if(output.textContent !== 'undefined'){
 		output.textContent = message;
 	}else{
@@ -33,14 +33,9 @@ function textSwap(id,message){
 function replHTML(id,property){
 	//measure taken in reducing sloppy coding
 	'use strict';
-
-	if((id.id === "undefined") && (typeof property === "string")){
-		console.log("replHTML if");
-		var output = document.getElementById(id);
+	var output = id;
+	if(property !== 'undefined'){
 		output.innerHTML = property;
-	}else if((id.id !== "undefined") && (typeof property === "string")){
-		console.log("replHTML else if");
-		id.innerHTML = property;
 	}else{
 		console.log("Fail!!! Function replHTML failed to pass variables presented to it.");
 	}
