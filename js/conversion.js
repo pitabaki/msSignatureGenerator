@@ -18,10 +18,17 @@ function init(){
 	//measure taken in reducing sloppy coding
 	'use strict';
 
-	var outlook10 = new emailClients("Outlook 2010", "https://www.youtube.com/watch?v=0FqFQep33Ec","outlook10"),
-		outlook13 = new emailClients("Outlook 2013", "https://www.youtube.com/watch?v=0FqFQep33Ec", "outlook13"),
-		outlook11 = new emailClients("Outlook 2011", "https://www.youtube.com/watch?v=0FqFQep33Ec", "outlook11"),
-		macMail = new emailClients("Mac Mail", "https://www.youtube.com/watch?v=_hlniA7-Xzg", "MacMail");
+	//email clients(variables)
+	var out10Link = "https://www.youtube.com/embed/Pm9of-zRxAo",
+		out13Link = "https://www.youtube.com/embed/GMcgWlI76Qg",
+		out11Link = "https://www.youtube.com/embed/0FqFQep33Ec",
+		macMailLink = "https://www.youtube.com/embed/7KbwvclNRfA";
+
+	//email clients (objects)
+	var outlook10 = new emailClients("Outlook 2010", out10Link, "outlook10"),
+		outlook13 = new emailClients("Outlook 2013", out13Link, "outlook13"),
+		outlook11 = new emailClients("Outlook 2011", out11Link, "outlook11"),
+		macMail = new emailClients("Mac Mail", macMailLink, "MacMail");
 
 	//Create Variables (DOM Selectors)
 	var name = key("name"),
@@ -53,6 +60,7 @@ function init(){
 		rplExt1 = key("rplExt1"),
 		rplExt2 = key("rplExt2"),
 		rplEmail = key("rplEmail"),
+		copyPaste = key("copyPaste"),
 		anchor = document.getElementsByTagName("a"),
 		clientLink = key("client-link"),
 		emHREF = anchor[1]; //References signature's # email address
@@ -61,6 +69,8 @@ function init(){
 		console.log(vidTut);
 		vidTut.style.opacity = "0";
 		vidOverlay.style.display = "none";
+
+		console.log(typeof outlook10.link);
 	//on submit
 	function fluxCapacitate(){
 
@@ -81,8 +91,8 @@ function init(){
 		ext2 = ext2.value;
 		emHREF.href = "mailto:" + email;
 		formPos.style.left = 0;
-		fadedBG("blackBG", coloring, "block");
-		whatUp("copyPaste","0", 250);
+		fadedBG(blackBG, coloring, "block");
+		whatUp(copyPaste,"0", 250);
 		rplNum1.style.display = "inline";
 		rplNum2.style.display = "inline";
 		rplNum3.style.display = "inline";
@@ -91,26 +101,25 @@ function init(){
 		switch(numSwitch[selection].value){
 			case outlook10.value:
 				textSwap(client,outlook10.name);
-				dropD("vid-tut",outlook10.link);
+				dropD(vidTut,outlook10.link);
 				break;
 			case outlook13.value:
 				textSwap(client,outlook13.name);
-				dropD("vid-tut",outlook13.link);
+				dropD(vidTut,outlook13.link);
 				break;
 			case outlook11.value:
 				textSwap(client,outlook11.name);
-				dropD("vid-tut",outlook11.link);
+				dropD(vidTut,outlook11.link);
 				break;
 			case macMail.value:
 				textSwap(client,macMail.name);
-				dropD("vid-tut",macMail.link);
+				dropD(vidTut,macMail.link);
 				break;
 			default:
 				console.log("doesn't work!");
 				break;
 		}
 
-		var testingLink = document.getElementById("client-link");
 		/*
 		//////////////////////////////////////////////////////////
 
@@ -121,6 +130,16 @@ function init(){
 
 		//////////////////////////////////////////////////////////
 		*/
+
+		//If numbers aren't entered, but extensions are, reset extensions
+		if((number.length <= 3) && (number2.length <= 3)){
+			ext1 = "";
+			ext2 = "";
+		}else if(number.length <= 3){
+			ext1 = "";
+		}else if(number2.length <= 3){
+			ext2 = "";
+		}
 
 		//if name, position, number, and email are all valid entries
 		if((name.length > 0) && (position.length >0) && (email.length > 0)){
@@ -187,6 +206,25 @@ function init(){
 				//Reload init()
 				init();
 
+			//if only the second and cell numbers have been entered
+			}else if((number.length <= 3) && (number2.length > 3) && (number3.length > 3)){
+
+				//All other text swaps
+				textSwap(rplNum1,number);
+				textSwap(rplNum2,number2);
+				textSwap(rplNum3,number3);
+
+				//insert <br />
+				replHTML(breakInsert, '');
+				replHTML(breakInsert2, htmlBR);
+				replHTML(breakInsert3, htmlBR);
+
+				//Turn off the 2nd number
+				rplNum1.style.display = "none";
+
+				//Reload init()
+				init();
+
 			//if only the first telephone number has been entered
 			}else if((number.length > 3) && (number2.length <= 3) && (number3.length <= 3)){
 
@@ -206,7 +244,7 @@ function init(){
 				init();
 
 			//if only the second number has been entered
-			}else if((number.length > 3) && (number2.length <= 3) && (number3.length <= 3)){
+			}else if((number.length <= 3) && (number2.length > 3) && (number3.length <= 3)){
 
 				//All other text swaps
 				textSwap(rplNum2,number2);
@@ -269,20 +307,21 @@ function init(){
 	function deAtomize(){
 		if(formPos.style.left === "0px"){
 			formPos.style.left = "-100%";
-			fadedBG("blackBG",erasing,"none",500);
-			vidIllum("videoOverlay","vid-tut","0","none",500);
+			fadedBG(blackBG,erasing,"none",500);
+			vidIllum(vidOverlay,vidTut,"0","none",500);
 		}else{
 			alert("FAIL!!!");//Just reassurance I haven't completely screwed up
 		}
 	}
+	//close results
 	function miTe(){
 		if((vidTut.style.opacity  === "0") && (vidOverlay.style.display === "none")){
 			console.log("this is vidOverlay (if): " + vidOverlay);
-			vidIllum("videoOverlay","vid-tut","1","block",500);
+			vidIllum(vidOverlay,vidTut,"1","block",500);
 			return false;
 		}else{
 			console.log("this is vidOverlay (else): " + vidOverlay);
-			vidIllum("videoOverlay","vid-tut","0","none",500);
+			vidIllum(vidOverlay,vidTut,"0","none",500);
 			return false;
 		}
 	}

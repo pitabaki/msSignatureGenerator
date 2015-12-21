@@ -31,50 +31,71 @@ function textSwap(id,message){
 
 //replace text function
 function replHTML(id,property){
-	//measure taken in reducing sloppy coding
 	'use strict';
 	var output = id;
-	if(property !== 'undefined'){
+	if(typeof property !== 'undefined'){
 		output.innerHTML = property;
 	}else{
-		console.log("Fail!!! Function replHTML failed to pass variables presented to it.");
+		console.log("Fail!!! Function replHTML failed to pass 'property' properly. Double-check your variables.");
 	}
 }
 
 function fadedBG(id,hue,cloak,time){
-	//measure taken in reducing sloppy coding
 	'use strict';
-	var bgDiv = document.getElementById(id);
-	if(typeof time === 'undefined'){
-		bgDiv.style.display = cloak;
-		setTimeout(function(){
-			bgDiv.style.backgroundColor = hue;
-		},50);
-	}else{
-		bgDiv.style.backgroundColor = hue;
-		setTimeout(function(){
+	var bgDiv = id;
+	if(typeof cloak === "string"){
+		if(typeof time === 'undefined'){
 			bgDiv.style.display = cloak;
-		},time);
+			setTimeout(function(){
+				bgDiv.style.backgroundColor = hue;
+			},50);
+		}else{
+			bgDiv.style.backgroundColor = hue;
+			setTimeout(function(){
+				bgDiv.style.display = cloak;
+			},time);
+		}
+	}else{
+		console.log("Error: the variable 'cloak' was incorrectly passed through function 'fadedBG'. Double-check your variables.")
 	}
 }
 
 function vidIllum(id,name,opac,cloak,time){
 	'use strict';
-	var bgDiv = document.getElementById(id);
-	var innerDiv = document.getElementById(name);
-	bgDiv.style.display = cloak;
-	setTimeout(function(){
-		innerDiv.style.opacity = opac;
-	},50);
+	var bgDiv = id;
+	var innerDiv = name;
+	if(typeof cloak !== "undefined"){
+		bgDiv.style.display = cloak;
+		if(typeof time === 'undefined'){
+			setTimeout(function(){
+				innerDiv.style.opacity = opac;
+			},50);
+		}else{
+			setTimeout(function(){
+				innerDiv.style.opacity = opac;
+			},time);
+		}
+	}else{
+		console.log("Error: the variable 'cloak' was incorrectly passed through function 'vidIllum'. Double-check your variables.")
+	}
 }
 
 function whatUp(id,position,time){
-	//measure taken in reducing sloppy coding
 	'use strict';
-	var bgDiv = document.getElementById(id);
-	setTimeout(function(){
-		bgDiv.style.marginTop = position;
-	},time);
+	var bgDiv = id;
+	if(typeof position === "string"){
+		if(typeof time === 'undefined'){
+			setTimeout(function(){
+				bgDiv.style.marginTop = position;
+			},50);
+		}else{
+			setTimeout(function(){
+				bgDiv.style.marginTop = position;
+			},time);
+		}
+	}else{
+		console.log("Error: the variable 'position' was incorrectly passed through function 'whatUp'. Double-check your variables.")
+	}
 }
 
 function extSwap(id,message){
@@ -93,8 +114,8 @@ function extSwap(id,message){
 
 function dropD(id,link){
 	"use strict";
-	if((typeof id === "string") && (typeof link === "string")){
-		var hvyMtl = document.getElementById(id);
+	var hvyMtl = id;
+	if(typeof link === "string"){
 		hvyMtl.src = link;
 	}else{
 		console.log("Link passed to dropD was not a string.");
