@@ -11,11 +11,11 @@ Developed for: Meyer Sound
 //return document id
 
 function key(id){
-		'use strict';
-		if(typeof id === "string"){
-			return document.getElementById(id);
-		}
+	'use strict';
+	if(typeof id === "string"){
+		return document.getElementById(id);
 	}
+}
 
 //replace text function
 function textSwap(id,message){
