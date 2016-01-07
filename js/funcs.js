@@ -60,23 +60,13 @@ function fadedBG(id,hue,cloak,time){
 	}
 }
 
-function vidIllum(id,name,opac,cloak,time){
+function vidIllum(name,opac){
 	'use strict';
-	var bgDiv = id;
 	var innerDiv = name;
-	if(typeof cloak !== "undefined"){
-		bgDiv.style.display = cloak;
-		if(typeof time === 'undefined'){
-			setTimeout(function(){
-				innerDiv.style.opacity = opac;
-			},50);
-		}else{
-			setTimeout(function(){
-				innerDiv.style.opacity = opac;
-			},time);
-		}
+	if(typeof innerDiv.style.opacity !== "undefined"){
+		innerDiv.style.opacity = opac;
 	}else{
-		console.log("Error: the variable 'cloak' was incorrectly passed through function 'vidIllum'. Double-check your variables.")
+		console.log("Error: one of the variables was incorrectly passed through function 'vidIllum'. Double-check your variables.")
 	}
 }
 

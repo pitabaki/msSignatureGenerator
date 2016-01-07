@@ -33,7 +33,7 @@ button {
   text-decoration: none; }
 
 a {
-  color: #558ac8;
+  color: #5a85d7;
   transition: color 0.5s ease; }
 
 a:hover,
@@ -103,7 +103,7 @@ button:hover {
 .video-overlay {
   position: absolute;
   width: 100%;
-  z-index: 22222222222222; }
+  z-index: 199999; }
 
 .video-overlay iframe {
   margin-right: 10%; }
@@ -116,12 +116,22 @@ button:hover {
   opacity: 0;
   transition: all 0.5s ease; }
 
-.highlight {
-  padding: 4px 6px;
+.bold, .highlight {
+  padding: 0;
+  font-weight: bold;
   border-radius: 4px;
   -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
+  -moz-border-radius: 4px; }
+
+.highlight {
+  padding: 4px 6px;
   background-color: #f4d422; }
+
+.font-brand {
+  margin-top: 6px;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  line-height: 17px; }
 
 #copyPaste {
   transition: all 0.5s ease; }
@@ -169,8 +179,8 @@ button:hover {
 #submit, #close-button {
   margin-top: 1.5em;
   background-color: #ffffff;
-  color: #558ac8;
-  border: 1px solid #558ac8;
+  color: #5a85d7;
+  border: 1px solid #5a85d7;
   float: right;
   width: 120px;
   height: 40px;
@@ -183,7 +193,7 @@ button:hover {
 
 #submit:hover, #close-button:hover {
   color: #ffffff;
-  background-color: #558ac8; }
+  background-color: #5a85d7; }
 
 #close-button {
   margin-right: 1em;
@@ -214,7 +224,7 @@ button input {
 
 #ms-brand a {
   font-size: 20px;
-  color: #558ac8;
+  color: #5a85d7;
   transition: all 0.5s ease; }
 
 #ms-brand a:hover {

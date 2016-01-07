@@ -66,11 +66,9 @@ function init(){
 		emHREF = anchor[1]; //References signature's # email address
 		//console.log(emHREF);
 		//console.log(numSwitch[selection].value);
-		console.log(vidTut);
 		vidTut.style.opacity = "0";
 		vidOverlay.style.display = "none";
 
-		console.log(typeof outlook10.link);
 	//on submit
 	function fluxCapacitate(){
 
@@ -308,21 +306,42 @@ function init(){
 		if(formPos.style.left === "0px"){
 			formPos.style.left = "-100%";
 			fadedBG(blackBG,erasing,"none",500);
-			vidIllum(vidOverlay,vidTut,"0","none",500);
+			vidIllum(vidTut,"0");
+			setTimeout(function(){
+				vidOverlay.style.display = "none";
+			},50);
 		}else{
 			alert("FAIL!!!");//Just reassurance I haven't completely screwed up
 		}
 	}
 	//close results
-	function miTe(){
-		if((vidTut.style.opacity  === "0") && (vidOverlay.style.display === "none")){
-			console.log("this is vidOverlay (if): " + vidOverlay);
-			vidIllum(vidOverlay,vidTut,"1","block",500);
-			return false;
+	function mite(){
+		if(window.innerWidth > 992){
+			vidOverlay.style.display = "block";
+				if(vidTut.style.opacity  === "0"){
+					setTimeout(function(){
+						vidIllum(vidTut,"1");
+						vidTut.width = Math.floor(window.innerWidth * 0.5);
+						vidTut.height = Math.floor(vidTut.width * 0.56);
+					},50);
+				}else{
+					setTimeout(function(){
+						vidIllum(vidTut,"0");
+					},50);
+				}
 		}else{
-			console.log("this is vidOverlay (else): " + vidOverlay);
-			vidIllum(vidOverlay,vidTut,"0","none",500);
-			return false;
+			vidOverlay.style.display = "none";
+		}
+		return false;
+	}
+
+	function swarley(){
+		if(window.innerWidth > 1200){
+			vidTut.width = Math.floor(window.innerWidth * 0.5);
+			vidTut.height = Math.floor(vidTut.width * 0.56);
+		}else if(window.innerWidth <= 1200){
+			vidTut.width = Math.floor(window.innerWidth * 0.35);
+			vidTut.height = Math.floor(vidTut.width * 0.56);
 		}
 	}
 
@@ -330,7 +349,7 @@ function init(){
 	close.onclick = deAtomize;
 	blackBG.onclick = deAtomize;
 	form.onsubmit = fluxCapacitate;
-	clientLink.onclick = miTe;
-
+	clientLink.onclick = mite;
+	window.onresize = swarley;
 }
 window.onload = init;
