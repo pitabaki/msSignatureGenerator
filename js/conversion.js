@@ -19,10 +19,10 @@ function init(){
 	'use strict';
 
 	//email clients(variables)
-	var out10Link = "https://www.youtube.com/embed/Pm9of-zRxAo",
-		out13Link = "https://www.youtube.com/embed/GMcgWlI76Qg",
-		out11Link = "https://www.youtube.com/embed/0FqFQep33Ec",
-		macMailLink = "https://www.youtube.com/embed/7KbwvclNRfA";
+	var out10Link = "https://www.meyersound.com/email/email_signature/distribution/video/signature_rough_v4.mp4",
+		out13Link = "https://www.meyersound.com/email/email_signature/distribution/video/signature_rough_v4.mp4",
+		out11Link = "https://www.meyersound.com/email/email_signature/distribution/video/signature_rough_v4.mp4",
+		macMailLink = "https://www.meyersound.com/email/email_signature/distribution/video/signature_rough_v5.mp4";
 
 	//email clients (objects)
 	var outlook10 = new emailClients("Outlook 2010", out10Link, "outlook10"),
@@ -299,6 +299,9 @@ function init(){
 		}else{
 				alert("Bad Entry: one of your inputs was incorrect.");
 		}
+		setTimeout(function(){
+			mite();
+		},50);
 		return false;
 	}
 	//close results

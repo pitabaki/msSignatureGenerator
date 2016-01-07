@@ -46,10 +46,12 @@ h2 {
   line-height: 29px; }
 
 select,
-iframe {
+iframe,
+video {
   display: block; }
 
-iframe {
+iframe,
+video {
   margin: 0 auto;
   padding: 0;
   display: absolute;
@@ -105,7 +107,8 @@ button:hover {
   width: 100%;
   z-index: 199999; }
 
-.video-overlay iframe {
+.video-overlay iframe,
+.video-overlay video {
   margin-right: 10%; }
 
 #videoOverlay {
