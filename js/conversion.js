@@ -7,10 +7,11 @@ Developed for: Meyer Sound
 
 */
 
-function emailClients(name,link,value){
+function emailClients(name,link,value,markup){
 	this.name = name;
 	this.link = link;
 	this.value = value;
+	this.markup = markup;
 }
 
 //Defined init Function (onload, do this)
@@ -50,6 +51,7 @@ function init(){
 		breakInsert2 = key("break2"),
 		breakInsert3 = key("break3"),
 		vidOverlay = key("videoOverlay"),
+		vidCont = key("vid-cont"),
 		vidTut = key("vid-tut"),
 		client = key("client"),
 		rplName = key("rplName"),
@@ -60,13 +62,12 @@ function init(){
 		rplExt1 = key("rplExt1"),
 		rplExt2 = key("rplExt2"),
 		rplEmail = key("rplEmail"),
-		copyPaste = key("copyPaste"),
 		anchor = document.getElementsByTagName("a"),
 		clientLink = key("client-link"),
 		emHREF = anchor[1]; //References signature's # email address
 		//console.log(emHREF);
 		//console.log(numSwitch[selection].value);
-		vidTut.style.opacity = "0";
+		//vidTut.style.opacity = "0";
 		vidOverlay.style.display = "none";
 
 	//on submit
@@ -90,7 +91,6 @@ function init(){
 		emHREF.href = "mailto:" + email;
 		formPos.style.left = 0;
 		fadedBG(blackBG, coloring, "block");
-		whatUp(copyPaste,"0", 250);
 		rplNum1.style.display = "inline";
 		rplNum2.style.display = "inline";
 		rplNum3.style.display = "inline";
@@ -99,19 +99,19 @@ function init(){
 		switch(numSwitch[selection].value){
 			case outlook10.value:
 				textSwap(client,outlook10.name);
-				dropD(vidTut,outlook10.link);
+				replHTML(vidCont,"<source id='vid-tut' src='" + outlook10.link + "' type='video/mp4' />");
 				break;
 			case outlook13.value:
 				textSwap(client,outlook13.name);
-				dropD(vidTut,outlook13.link);
+				dropD(vidCont,outlook13.link);
 				break;
 			case outlook11.value:
 				textSwap(client,outlook11.name);
-				dropD(vidTut,outlook11.link);
+				dropD(vidCont,outlook11.link);
 				break;
 			case macMail.value:
 				textSwap(client,macMail.name);
-				dropD(vidTut,macMail.link);
+				dropD(vidCont,macMail.link);
 				break;
 			default:
 				console.log("doesn't work!");
@@ -317,6 +317,7 @@ function init(){
 			alert("FAIL!!!");//Just reassurance I haven't completely screwed up
 		}
 	}
+
 	//close results
 	function mite(){
 		if(window.innerWidth > 992){
@@ -340,19 +341,21 @@ function init(){
 
 	function swarley(){
 		if(window.innerWidth > 1200){
-			vidTut.width = Math.floor(window.innerWidth * 0.5);
-			vidTut.height = Math.floor(vidTut.width * 0.56);
+			vidCont.width = Math.floor(window.innerWidth * 0.5);
+			vidCont.height = Math.floor(vidCont.width * 0.56);
 		}else if(window.innerWidth <= 1200){
-			vidTut.width = Math.floor(window.innerWidth * 0.35);
-			vidTut.height = Math.floor(vidTut.width * 0.56);
+			vidCont.width = Math.floor(window.innerWidth * 0.35);
+			vidCont.height = Math.floor(vidCont.width * 0.56);
 		}
 	}
-
+	function vidPlay(){
+		vidCont.play();
+	}
 	//events
 	close.onclick = deAtomize;
 	blackBG.onclick = deAtomize;
 	form.onsubmit = fluxCapacitate;
-	clientLink.onclick = mite;
+	clientLink.onclick = vidPlay;
 	window.onresize = swarley;
 }
 window.onload = init;

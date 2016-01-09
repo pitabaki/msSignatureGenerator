@@ -51,11 +51,13 @@ h2
 
 select,
 iframe,
-video
+video,
+source
 	display: block
 
 iframe,
-video
+video,
+source
 	+absoluteZero
 	display: absolute
 	float: right
@@ -108,7 +110,8 @@ button:hover
 	z-index: 199999
 
 .video-overlay iframe,
-.video-overlay video
+.video-overlay video,
+.video-overlay video source
 	margin-right: 10%
 
 #videoOverlay
@@ -167,11 +170,11 @@ button:hover
 	margin-top: 0%
 	margin-left: 0%
 	left: -50%
-	position: fixed
+	position: absolute
 	padding-top: 60px
 	padding-left: 100px
 	z-index: 200000
-	height: 110%
+	height: 150%
 	width: 35%
 	background-color: white
 	transition: all 0.5s ease
