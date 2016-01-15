@@ -22,13 +22,13 @@ function init(){
 	//email clients(variables)
 	var out10Link = "https://www.meyersound.com/email/email_signature/distribution/video/signature_rough_v4.mp4",
 		out13Link = "https://www.meyersound.com/email/email_signature/distribution/video/signature_rough_v4.mp4",
-		out11Link = "https://www.meyersound.com/email/email_signature/distribution/video/signature_rough_v4.mp4",
-		macMailLink = "https://www.meyersound.com/email/email_signature/distribution/video/signature_rough_v5.mp4";
+		out11Link = "https://www.meyersound.com/email/email_signature/distribution/video/Mac_Outlook11.mp4",
+		macMailLink = "https://www.meyersound.com/email/email_signature/distribution/video/Mac_Mail.mp4";
 
 	//email clients (objects)
-	var outlook10 = new emailClients("Outlook 2010", out10Link, "outlook10"),
-		outlook13 = new emailClients("Outlook 2013", out13Link, "outlook13"),
-		outlook11 = new emailClients("Outlook 2011", out11Link, "outlook11"),
+	var outlook10 = new emailClients("PC Outlook 2010", out10Link, "outlook10"),
+		outlook13 = new emailClients("PC Outlook 2013", out13Link, "outlook13"),
+		outlook11 = new emailClients("Mac Outlook 2011", out11Link, "outlook11"),
 		macMail = new emailClients("Mac Mail", macMailLink, "MacMail");
 
 	//Create Variables (DOM Selectors)
@@ -103,15 +103,15 @@ function init(){
 				break;
 			case outlook13.value:
 				textSwap(client,outlook13.name);
-				dropD(vidCont,outlook13.link);
+				replHTML(vidCont,"<source id='vid-tut' src='" + outlook13.link + "' type='video/mp4' />");
 				break;
 			case outlook11.value:
 				textSwap(client,outlook11.name);
-				dropD(vidCont,outlook11.link);
+				replHTML(vidCont,"<source id='vid-tut' src='" + outlook11.link + "' type='video/mp4' />");
 				break;
 			case macMail.value:
 				textSwap(client,macMail.name);
-				dropD(vidCont,macMail.link);
+				replHTML(vidCont,"<source id='vid-tut' src='" + macMail.link + "' type='video/mp4' />");
 				break;
 			default:
 				console.log("doesn't work!");
@@ -309,7 +309,7 @@ function init(){
 		if(formPos.style.left === "0px"){
 			formPos.style.left = "-100%";
 			fadedBG(blackBG,erasing,"none",500);
-			vidIllum(vidTut,"0");
+			vidIllum(vidCont,"0");
 			setTimeout(function(){
 				vidOverlay.style.display = "none";
 			},50);
@@ -320,19 +320,27 @@ function init(){
 
 	//close results
 	function mite(){
-		if(window.innerWidth > 992){
+		if(window.innerWidth > 1200){
 			vidOverlay.style.display = "block";
-				if(vidTut.style.opacity  === "0"){
 					setTimeout(function(){
-						vidIllum(vidTut,"1");
-						vidTut.width = Math.floor(window.innerWidth * 0.5);
-						vidTut.height = Math.floor(vidTut.width * 0.56);
+						vidIllum(vidCont,"1");
+						console.log("before " + vidCont.width);
+						vidCont.width = Math.floor(window.innerWidth * 0.5);
+						vidCont.height = vidCont.width * 0.5625;
+						vidCont.width = vidCont.width - 1;
+						console.log("after " + vidCont.width);
 					},50);
-				}else{
+				
+		}else if((window.innerWidth <= 1200) && (window.innerWidth > 992)){
+			vidOverlay.style.display = "block";
 					setTimeout(function(){
-						vidIllum(vidTut,"0");
+						vidIllum(vidCont,"1");
+						console.log("before " + vidCont.width);
+						vidCont.width = Math.floor(window.innerWidth * 0.35);
+						vidCont.height = vidCont.width * 0.5625;
+						vidCont.width = vidCont.width - 1;
+						console.log("after " + vidCont.width);
 					},50);
-				}
 		}else{
 			vidOverlay.style.display = "none";
 		}
@@ -341,11 +349,15 @@ function init(){
 
 	function swarley(){
 		if(window.innerWidth > 1200){
+			console.log("before " + vidCont.width);
 			vidCont.width = Math.floor(window.innerWidth * 0.5);
-			vidCont.height = Math.floor(vidCont.width * 0.56);
+			vidCont.height = vidCont.width * 0.5625;
+			vidCont.width = vidCont.width - 1;
+			console.log("after " + vidCont.width);
 		}else if(window.innerWidth <= 1200){
 			vidCont.width = Math.floor(window.innerWidth * 0.35);
-			vidCont.height = Math.floor(vidCont.width * 0.56);
+			vidCont.height = vidCont.width * 0.5625;
+			vidCont.width = vidCont.width - 1;
 		}
 	}
 	function vidPlay(){

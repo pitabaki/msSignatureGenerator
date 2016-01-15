@@ -8,7 +8,11 @@ Developed for: Meyer Sound
 */
 
 
-//return document id
+/**************************************
+
+function key: returns id
+
+**************************************/
 
 function key(id){
 	'use strict';
@@ -17,7 +21,12 @@ function key(id){
 	}
 }
 
-//replace text function
+/**************************************
+
+function textSwap: replaces and/or modifies text
+
+**************************************/
+
 function textSwap(id,message){
 	//measure taken in reducing sloppy coding
 	'use strict';
@@ -29,7 +38,12 @@ function textSwap(id,message){
 	}
 }
 
-//replace text function
+/**************************************
+
+function replHTML: replaces and/or modifies HTML
+
+**************************************/
+
 function replHTML(id,property){
 	'use strict';
 	var output = id;
@@ -39,6 +53,12 @@ function replHTML(id,property){
 		console.log("Fail!!! Function replHTML failed to pass 'property' properly. Double-check your variables.");
 	}
 }
+
+/**************************************
+
+function fadedBG: modifies both display and background-color
+
+**************************************/
 
 function fadedBG(id,hue,cloak,time){
 	'use strict';
@@ -60,6 +80,12 @@ function fadedBG(id,hue,cloak,time){
 	}
 }
 
+/**************************************
+
+function vidIllum: modifies the opacity of a passed node/element
+
+**************************************/
+
 function vidIllum(name,opac){
 	'use strict';
 	var innerDiv = name;
@@ -69,6 +95,12 @@ function vidIllum(name,opac){
 		console.log("Error: one of the variables was incorrectly passed through function 'vidIllum'. Double-check your variables.")
 	}
 }
+
+/**************************************
+
+function whatUp: modifies the margin-top position
+
+**************************************/
 
 function whatUp(id,position,time){
 	'use strict';
@@ -88,6 +120,12 @@ function whatUp(id,position,time){
 	}
 }
 
+/**************************************
+
+function extSwap: adds a phone number's extension (not the phone number, though)
+
+**************************************/
+
 function extSwap(id,message){
 	"use strict";
 	console.log("Passing " + id + " and " + message);
@@ -101,6 +139,12 @@ function extSwap(id,message){
 		textSwap(id,message);
 	}
 }
+
+/**************************************
+
+function dropD: modifies video src
+
+**************************************/
 
 function dropD(id,link){
 	"use strict";
