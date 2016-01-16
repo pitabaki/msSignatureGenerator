@@ -53,7 +53,7 @@ Signature
 					</div>
 				</div>
 				<div id="testing" style="margin:0 auto;padding:0;" class="selectable">
-					<table align="left" cellspacing="0" cellpadding="0" width="1200%" style="width:1200px;">
+					<table align="left" cellspacing="0" cellpadding="0" border="0" width="100%">
 						<tr>
 							<td>
 								<table cellspacing="0" cellpadding="0" width="300" style="width:300px;">
@@ -113,6 +113,10 @@ Signature
 											<a href="https://www.linkedin.com/company/meyer-sound" target="_blank"><img src="http://www.meyersound.com/email/email_signature/icons/linkedin_ltGry.gif" style="border:0;width:30px;" alt="MS LinkedIn" /></a>
 										</td>
 									</tr>
+									<tr>
+										<td colspan="2" height="20" style="line-height:21px;">
+										</td>
+									</tr>
 								</table>
 							</td>
 						</tr>
@@ -166,9 +170,14 @@ end Video
 				</ul>
 		</div>
 	</nav>
-	<div class="container notSelectable">
+	<section id="firefox-overlay" class="firefox-overlay">
+		<h1 id="error">This app doesn't work in <em>Firefox</em>.<br>Please use either <a href="http://www.apple.com/safari/" target="_blank">Safari</a> or <a href="https://www.google.com/chrome/browser/desktop/index.html" target="_blank">Chrome</a>.</h1>
+		<div id="fireBG">
+		</div>
+	</section>
+	<section class="container notSelectable">
 		<div class="row">
-			<div class="col-md-6 instructions">
+			<section class="col-md-6 instructions">
 				<h2>Creating your own Meyer Sound email signature:</h2><br>
 				<ol>
 					<li>
@@ -201,8 +210,8 @@ end Video
 						When ready, click "submit" to generate email signature.
 					</li>
 				</ol>
-			</div>
-			<div class="col-sm-12 col-md-6 instructionsForm">
+			</section>
+			<section class="col-sm-12 col-md-6 instructionsForm">
 				<form id="form" action="#">
 			  		<fieldset>
 			  			<label>Email Client:</label>
@@ -242,11 +251,11 @@ end Video
 			    		<input id="submit" type="submit" value="submit" />
 			  		</fieldset>
 				</form>
-			</div>
+			</section>
 		</div>
-	</div>
-	<script type="text/javascript" src="js/funcs.js"></script>
-	<script type="text/javascript" src="js/conversion.js"></script>
-	<!--<script type="text/javascript" src="js/min/script-min.js"></script>-->
+	</section>
+	<!--<script type="text/javascript" src="js/funcs.js"></script>-->
+	<!--<script type="text/javascript" src="js/conversion.js"></script>-->
+	<script type="text/javascript" src="js/min/script-min.js"></script>
 </body>
 </html>

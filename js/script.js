@@ -8,16 +8,25 @@ Developed for: Meyer Sound
 */
 
 
-//return document id
+/**************************************
+
+function key: returns id
+
+**************************************/
 
 function key(id){
-		'use strict';
-		if(typeof id === "string"){
-			return document.getElementById(id);
-		}
+	'use strict';
+	if(typeof id === "string"){
+		return document.getElementById(id);
 	}
+}
 
-//replace text function
+/**************************************
+
+function textSwap: replaces and/or modifies text
+
+**************************************/
+
 function textSwap(id,message){
 	//measure taken in reducing sloppy coding
 	'use strict';
@@ -29,7 +38,12 @@ function textSwap(id,message){
 	}
 }
 
-//replace text function
+/**************************************
+
+function replHTML: replaces and/or modifies HTML
+
+**************************************/
+
 function replHTML(id,property){
 	'use strict';
 	var output = id;
@@ -39,6 +53,12 @@ function replHTML(id,property){
 		console.log("Fail!!! Function replHTML failed to pass 'property' properly. Double-check your variables.");
 	}
 }
+
+/**************************************
+
+function fadedBG: modifies both display and background-color
+
+**************************************/
 
 function fadedBG(id,hue,cloak,time){
 	'use strict';
@@ -60,25 +80,27 @@ function fadedBG(id,hue,cloak,time){
 	}
 }
 
-function vidIllum(id,name,opac,cloak,time){
+/**************************************
+
+function vidIllum: modifies the opacity of a passed node/element
+
+**************************************/
+
+function vidIllum(name,opac){
 	'use strict';
-	var bgDiv = id;
 	var innerDiv = name;
-	if(typeof cloak !== "undefined"){
-		bgDiv.style.display = cloak;
-		if(typeof time === 'undefined'){
-			setTimeout(function(){
-				innerDiv.style.opacity = opac;
-			},50);
-		}else{
-			setTimeout(function(){
-				innerDiv.style.opacity = opac;
-			},time);
-		}
+	if(typeof innerDiv.style.opacity !== "undefined"){
+		innerDiv.style.opacity = opac;
 	}else{
-		console.log("Error: the variable 'cloak' was incorrectly passed through function 'vidIllum'. Double-check your variables.")
+		console.log("Error: one of the variables was incorrectly passed through function 'vidIllum'. Double-check your variables.")
 	}
 }
+
+/**************************************
+
+function whatUp: modifies the margin-top position
+
+**************************************/
 
 function whatUp(id,position,time){
 	'use strict';
@@ -98,6 +120,12 @@ function whatUp(id,position,time){
 	}
 }
 
+/**************************************
+
+function extSwap: adds a phone number's extension (not the phone number, though)
+
+**************************************/
+
 function extSwap(id,message){
 	"use strict";
 	console.log("Passing " + id + " and " + message);
@@ -112,6 +140,12 @@ function extSwap(id,message){
 	}
 }
 
+/**************************************
+
+function dropD: modifies video src
+
+**************************************/
+
 function dropD(id,link){
 	"use strict";
 	var hvyMtl = id;
@@ -120,6 +154,27 @@ function dropD(id,link){
 	}else{
 		console.log("Link passed to dropD was not a string.");
 	}
+}
+//Check active browser
+
+var isFirefox = typeof InstallTrigger !== 'undefined';   // Firefox 1.0+
+var fireOverlay = key("firefox-overlay"),
+	error = key("error"),
+	fireBG = key("fireBG");
+/*
+var isOpera = !!window.opera || navigator.userAgent.indexOf(' OPR/') >= 0;
+var isSafari = Object.prototype.toString.call(window.HTMLElement).indexOf('Constructor') > 0;
+var isChrome = !!window.chrome && !isOpera;
+var isIE = false || !!document.documentMode;*/
+
+if(isFirefox === true){
+	fireOverlay.style.display = "block";
+	setTimeout(function(){
+		fireBG.style.opacity = "0.75";
+	}, 100);
+	setTimeout(function(){
+		error.style.top = "-100px";
+	}, 500);
 }
 /*
 
@@ -130,27 +185,28 @@ Developed for: Meyer Sound
 
 */
 
-function emailClients(name,link,value){
+function emailClients(name,link,value,markup){
 	this.name = name;
 	this.link = link;
 	this.value = value;
+	this.markup = markup;
 }
 
 //Defined init Function (onload, do this)
 function init(){
 	//measure taken in reducing sloppy coding
 	'use strict';
-
+	
 	//email clients(variables)
-	var out10Link = "https://www.youtube.com/embed/Pm9of-zRxAo",
-		out13Link = "https://www.youtube.com/embed/GMcgWlI76Qg",
-		out11Link = "https://www.youtube.com/embed/0FqFQep33Ec",
-		macMailLink = "https://www.youtube.com/embed/7KbwvclNRfA";
+	var out10Link = "https://www.meyersound.com/email/email_signature/distribution/video/signature_rough_v4.mp4",
+		out13Link = "https://www.meyersound.com/email/email_signature/distribution/video/signature_rough_v4.mp4",
+		out11Link = "https://www.meyersound.com/email/email_signature/distribution/video/Mac_Outlook11.mp4",
+		macMailLink = "https://www.meyersound.com/email/email_signature/distribution/video/Mac_Mail.mp4";
 
 	//email clients (objects)
-	var outlook10 = new emailClients("Outlook 2010", out10Link, "outlook10"),
-		outlook13 = new emailClients("Outlook 2013", out13Link, "outlook13"),
-		outlook11 = new emailClients("Outlook 2011", out11Link, "outlook11"),
+	var outlook10 = new emailClients("PC Outlook 2010", out10Link, "outlook10"),
+		outlook13 = new emailClients("PC Outlook 2013", out13Link, "outlook13"),
+		outlook11 = new emailClients("Mac Outlook 2011", out11Link, "outlook11"),
 		macMail = new emailClients("Mac Mail", macMailLink, "MacMail");
 
 	//Create Variables (DOM Selectors)
@@ -173,6 +229,7 @@ function init(){
 		breakInsert2 = key("break2"),
 		breakInsert3 = key("break3"),
 		vidOverlay = key("videoOverlay"),
+		vidCont = key("vid-cont"),
 		vidTut = key("vid-tut"),
 		client = key("client"),
 		rplName = key("rplName"),
@@ -183,17 +240,14 @@ function init(){
 		rplExt1 = key("rplExt1"),
 		rplExt2 = key("rplExt2"),
 		rplEmail = key("rplEmail"),
-		copyPaste = key("copyPaste"),
 		anchor = document.getElementsByTagName("a"),
 		clientLink = key("client-link"),
 		emHREF = anchor[1]; //References signature's # email address
 		//console.log(emHREF);
 		//console.log(numSwitch[selection].value);
-		console.log(vidTut);
-		vidTut.style.opacity = "0";
+		//vidTut.style.opacity = "0";
 		vidOverlay.style.display = "none";
 
-		console.log(typeof outlook10.link);
 	//on submit
 	function fluxCapacitate(){
 
@@ -215,7 +269,6 @@ function init(){
 		emHREF.href = "mailto:" + email;
 		formPos.style.left = 0;
 		fadedBG(blackBG, coloring, "block");
-		whatUp(copyPaste,"0", 250);
 		rplNum1.style.display = "inline";
 		rplNum2.style.display = "inline";
 		rplNum3.style.display = "inline";
@@ -224,19 +277,19 @@ function init(){
 		switch(numSwitch[selection].value){
 			case outlook10.value:
 				textSwap(client,outlook10.name);
-				dropD(vidTut,outlook10.link);
+				replHTML(vidCont,"<source id='vid-tut' src='" + outlook10.link + "' type='video/mp4' />");
 				break;
 			case outlook13.value:
 				textSwap(client,outlook13.name);
-				dropD(vidTut,outlook13.link);
+				replHTML(vidCont,"<source id='vid-tut' src='" + outlook13.link + "' type='video/mp4' />");
 				break;
 			case outlook11.value:
 				textSwap(client,outlook11.name);
-				dropD(vidTut,outlook11.link);
+				replHTML(vidCont,"<source id='vid-tut' src='" + outlook11.link + "' type='video/mp4' />");
 				break;
 			case macMail.value:
 				textSwap(client,macMail.name);
-				dropD(vidTut,macMail.link);
+				replHTML(vidCont,"<source id='vid-tut' src='" + macMail.link + "' type='video/mp4' />");
 				break;
 			default:
 				console.log("doesn't work!");
@@ -424,36 +477,77 @@ function init(){
 		}else{
 				alert("Bad Entry: one of your inputs was incorrect.");
 		}
+		setTimeout(function(){
+			mite();
+		},50);
 		return false;
 	}
+
 	//close results
 	function deAtomize(){
 		if(formPos.style.left === "0px"){
 			formPos.style.left = "-100%";
 			fadedBG(blackBG,erasing,"none",500);
-			vidIllum(vidOverlay,vidTut,"0","none",500);
+			vidIllum(vidCont,"0");
+			setTimeout(function(){
+				vidOverlay.style.display = "none";
+			},50);
 		}else{
 			alert("FAIL!!!");//Just reassurance I haven't completely screwed up
 		}
 	}
+
 	//close results
-	function miTe(){
-		if((vidTut.style.opacity  === "0") && (vidOverlay.style.display === "none")){
-			console.log("this is vidOverlay (if): " + vidOverlay);
-			vidIllum(vidOverlay,vidTut,"1","block",500);
-			return false;
+	function mite(){
+		if(window.innerWidth > 1200){
+			vidOverlay.style.display = "block";
+					setTimeout(function(){
+						vidIllum(vidCont,"1");
+						console.log("before " + vidCont.width);
+						vidCont.width = Math.floor(window.innerWidth * 0.5);
+						vidCont.height = vidCont.width * 0.5625;
+						vidCont.width = vidCont.width - 1;
+						console.log("after " + vidCont.width);
+					},50);
+				
+		}else if((window.innerWidth <= 1200) && (window.innerWidth > 992)){
+			vidOverlay.style.display = "block";
+					setTimeout(function(){
+						vidIllum(vidCont,"1");
+						console.log("before " + vidCont.width);
+						vidCont.width = Math.floor(window.innerWidth * 0.35);
+						vidCont.height = vidCont.width * 0.5625;
+						vidCont.width = vidCont.width - 1;
+						console.log("after " + vidCont.width);
+					},50);
 		}else{
-			console.log("this is vidOverlay (else): " + vidOverlay);
-			vidIllum(vidOverlay,vidTut,"0","none",500);
-			return false;
+			vidOverlay.style.display = "none";
 		}
+		return false;
+	}
+
+	function swarley(){
+		if(window.innerWidth > 1200){
+			console.log("before " + vidCont.width);
+			vidCont.width = Math.floor(window.innerWidth * 0.5);
+			vidCont.height = vidCont.width * 0.5625;
+			vidCont.width = vidCont.width - 1;
+			console.log("after " + vidCont.width);
+		}else if(window.innerWidth <= 1200){
+			vidCont.width = Math.floor(window.innerWidth * 0.35);
+			vidCont.height = vidCont.width * 0.5625;
+			vidCont.width = vidCont.width - 1;
+		}
+	}
+	function vidPlay(){
+		vidCont.play();
 	}
 
 	//events
 	close.onclick = deAtomize;
 	blackBG.onclick = deAtomize;
 	form.onsubmit = fluxCapacitate;
-	clientLink.onclick = miTe;
-
+	clientLink.onclick = vidPlay;
+	window.onresize = swarley;
 }
 window.onload = init;

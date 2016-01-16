@@ -2,10 +2,12 @@ var gulp = require('gulp'),
 	minifyCss = require('gulp-minify-css'),
 	conCat = require('gulp-concat'),
 	jsMinify = require('gulp-minify'),
+	watchmen = require('gulp-watch'),
 	gutil = require('gulp-util');
 
 var jsSources = [
 	'../js/funcs.js',
+	'../js/checkBrowser.js',
 	'../js/conversion.js'
 	];
 

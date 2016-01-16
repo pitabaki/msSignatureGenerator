@@ -18,7 +18,7 @@ function emailClients(name,link,value,markup){
 function init(){
 	//measure taken in reducing sloppy coding
 	'use strict';
-
+	
 	//email clients(variables)
 	var out10Link = "https://www.meyersound.com/email/email_signature/distribution/video/signature_rough_v4.mp4",
 		out13Link = "https://www.meyersound.com/email/email_signature/distribution/video/signature_rough_v4.mp4",
@@ -304,6 +304,7 @@ function init(){
 		},50);
 		return false;
 	}
+
 	//close results
 	function deAtomize(){
 		if(formPos.style.left === "0px"){
@@ -363,6 +364,7 @@ function init(){
 	function vidPlay(){
 		vidCont.play();
 	}
+
 	//events
 	close.onclick = deAtomize;
 	blackBG.onclick = deAtomize;
