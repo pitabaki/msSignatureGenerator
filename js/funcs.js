@@ -40,6 +40,43 @@ function textSwap(id,message){
 
 /**************************************
 
+function phoneQC: checks that telephone numbers being input follow branding guidelines
+
+**************************************/
+
+function phoneQC(message){
+  var emptyCont = [],
+      transCont = [],
+      secEmpty = [];
+  for(var i = 0;i < message.length;i++){
+    if((message[i] === "-") || (message[i] === ".")){
+      emptyCont.push(" ");
+      transCont.push(" ");
+    }else if((message[i] === "(") || (message[i] === ")")){
+      emptyCont.push();
+      transCont.push();
+    }else{
+      emptyCont.push(message[i]);
+      transCont.push(message[i]);
+    }
+  }
+  transCont = transCont.reverse();
+  for(var g = 0; g < transCont.length; g++){
+    if((secEmpty.length === 4) && (emptyCont[emptyCont.length - 5] !== " ")){
+      secEmpty.push(" ");
+      secEmpty.push(transCont[g]);
+    }else{
+      secEmpty.push(transCont[g]);
+    }
+  }
+  secEmpty.reverse();
+  secEmpty[secEmpty.length - 5] = ".";
+  secEmpty = secEmpty.join("");
+  return secEmpty;
+}
+
+/**************************************
+
 function replHTML: replaces and/or modifies HTML
 
 **************************************/
@@ -130,11 +167,9 @@ function extSwap(id,message){
 	"use strict";
 	console.log("Passing " + id + " and " + message);
 	if(message.length !== 0){
-		console.log("If with " + message);
 		message = " x" + message;
 		textSwap(id,message);
 	}else{
-		console.log("Else with " + message);
 		message = " ";
 		textSwap(id,message);
 	}

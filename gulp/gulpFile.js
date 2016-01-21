@@ -25,5 +25,8 @@ gulp.task('jsConcat', function(){
 
 gulp.task('minify-js', function(){
 	gulp.src('../js/script.js')
-		.pipe(gulp.dest('../js'))
+		.pipe(jsMinify({
+			ignoreFiles: ['conversion.js','funcs.js']
+		}))
+		.pipe(gulp.dest('../js/min'))
 });

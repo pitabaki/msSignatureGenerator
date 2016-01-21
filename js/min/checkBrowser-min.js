@@ -1,1 +1,0 @@
-var isFirefox="undefined"!=typeof InstallTrigger,fireOverlay=key("firefox-overlay"),error=key("error"),fireBG=key("fireBG");isFirefox===!0&&(fireOverlay.style.display="block",setTimeout(function(){fireBG.style.opacity="0.75"},100),setTimeout(function(){error.style.top="-100px"},500));

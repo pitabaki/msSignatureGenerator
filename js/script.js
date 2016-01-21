@@ -40,6 +40,43 @@ function textSwap(id,message){
 
 /**************************************
 
+function phoneQC: checks that telephone numbers being input follow branding guidelines
+
+**************************************/
+
+function phoneQC(message){
+  var emptyCont = [],
+      transCont = [],
+      secEmpty = [];
+  for(var i = 0;i < message.length;i++){
+    if((message[i] === "-") || (message[i] === ".")){
+      emptyCont.push(" ");
+      transCont.push(" ");
+    }else if((message[i] === "(") || (message[i] === ")")){
+      emptyCont.push();
+      transCont.push();
+    }else{
+      emptyCont.push(message[i]);
+      transCont.push(message[i]);
+    }
+  }
+  transCont = transCont.reverse();
+  for(var g = 0; g < transCont.length; g++){
+    if((secEmpty.length === 4) && (emptyCont[emptyCont.length - 5] !== " ")){
+      secEmpty.push(" ");
+      secEmpty.push(transCont[g]);
+    }else{
+      secEmpty.push(transCont[g]);
+    }
+  }
+  secEmpty.reverse();
+  secEmpty[secEmpty.length - 5] = ".";
+  secEmpty = secEmpty.join("");
+  return secEmpty;
+}
+
+/**************************************
+
 function replHTML: replaces and/or modifies HTML
 
 **************************************/
@@ -130,11 +167,9 @@ function extSwap(id,message){
 	"use strict";
 	console.log("Passing " + id + " and " + message);
 	if(message.length !== 0){
-		console.log("If with " + message);
 		message = " x" + message;
 		textSwap(id,message);
 	}else{
-		console.log("Else with " + message);
 		message = " ";
 		textSwap(id,message);
 	}
@@ -198,8 +233,8 @@ function init(){
 	'use strict';
 	
 	//email clients(variables)
-	var out10Link = "https://www.meyersound.com/email/email_signature/distribution/video/signature_rough_v4.mp4",
-		out13Link = "https://www.meyersound.com/email/email_signature/distribution/video/signature_rough_v4.mp4",
+	var out10Link = "https://www.meyersound.com/email/email_signature/distribution/video/PC_Outlook10.mp4",
+		out13Link = "https://www.meyersound.com/email/email_signature/distribution/video/PC_Outlook13.mp4",
 		out11Link = "https://www.meyersound.com/email/email_signature/distribution/video/Mac_Outlook11.mp4",
 		macMailLink = "https://www.meyersound.com/email/email_signature/distribution/video/Mac_Mail.mp4";
 
@@ -243,15 +278,12 @@ function init(){
 		anchor = document.getElementsByTagName("a"),
 		clientLink = key("client-link"),
 		emHREF = anchor[1]; //References signature's # email address
-		//console.log(emHREF);
-		//console.log(numSwitch[selection].value);
 		//vidTut.style.opacity = "0";
 		vidOverlay.style.display = "none";
 
 	//on submit
 	function fluxCapacitate(){
 
-		//captures client selected
 		var numSwitch = key("numSwitch"),
 		selection = numSwitch.selectedIndex;
 
@@ -259,11 +291,15 @@ function init(){
 		position = position.value;
 		email = email.value;//Replaces # with whatever user enters
 		email = email.toLowerCase();
+		
+		number = phoneQC(number.value);
+		number2 = phoneQC(number2.value);
+		number3 = phoneQC(number3.value);
 
 		//number values are updated and the additional identifier is added
-		number = "T: " + number.value;
-		number2 = "T: " + number2.value;
-		number3 = "C: " + number3.value;
+		number = "T: " + number;
+		number2 = "T: " + number2;
+		number3 = "C: " + number3;
 		ext1 = ext1.value;
 		ext2 = ext2.value;
 		emHREF.href = "mailto:" + email;
@@ -295,7 +331,7 @@ function init(){
 				console.log("doesn't work!");
 				break;
 		}
-
+		vidCont.load();
 		/*
 		//////////////////////////////////////////////////////////
 
@@ -488,6 +524,7 @@ function init(){
 		if(formPos.style.left === "0px"){
 			formPos.style.left = "-100%";
 			fadedBG(blackBG,erasing,"none",500);
+			vidCont.pause();
 			vidIllum(vidCont,"0");
 			setTimeout(function(){
 				vidOverlay.style.display = "none";
@@ -503,36 +540,29 @@ function init(){
 			vidOverlay.style.display = "block";
 					setTimeout(function(){
 						vidIllum(vidCont,"1");
-						console.log("before " + vidCont.width);
 						vidCont.width = Math.floor(window.innerWidth * 0.5);
 						vidCont.height = vidCont.width * 0.5625;
 						vidCont.width = vidCont.width - 1;
-						console.log("after " + vidCont.width);
 					},50);
 				
 		}else if((window.innerWidth <= 1200) && (window.innerWidth > 992)){
 			vidOverlay.style.display = "block";
 					setTimeout(function(){
 						vidIllum(vidCont,"1");
-						console.log("before " + vidCont.width);
 						vidCont.width = Math.floor(window.innerWidth * 0.35);
 						vidCont.height = vidCont.width * 0.5625;
 						vidCont.width = vidCont.width - 1;
-						console.log("after " + vidCont.width);
 					},50);
 		}else{
 			vidOverlay.style.display = "none";
 		}
-		return false;
 	}
 
 	function swarley(){
 		if(window.innerWidth > 1200){
-			console.log("before " + vidCont.width);
 			vidCont.width = Math.floor(window.innerWidth * 0.5);
 			vidCont.height = vidCont.width * 0.5625;
 			vidCont.width = vidCont.width - 1;
-			console.log("after " + vidCont.width);
 		}else if(window.innerWidth <= 1200){
 			vidCont.width = Math.floor(window.innerWidth * 0.35);
 			vidCont.height = vidCont.width * 0.5625;
