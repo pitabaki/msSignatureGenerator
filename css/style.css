@@ -258,7 +258,7 @@ button input {
   -moz-user-select: all;
   -khtml-user-select: all;
   -webkit-user-select: all;
-  -ms-user-select: all;
+  -ms-user-select: text;
   user-select: all; }
 
 .instructions, .copyInst, .instructionsForm {
@@ -266,9 +266,7 @@ button input {
   padding: 1.5em 2em 1.5em; }
 
 .instructions h2, .copyInst h2, .instructionsForm h2,
-.instructions li,
-.copyInst li,
-.instructionsForm li {
+.instructions li, .copyInst li, .instructionsForm li {
   font-family: "HelveticaNeue", Helvetica, Arial, sans-serif;
   color: #231f20; }
 
@@ -386,7 +384,7 @@ ol li {
   color: #19549a; }
 
 #error {
-  top: -40%; }
+  top: -60%; }
 
 #fireBG {
   opacity: 0;
@@ -396,83 +394,65 @@ ol li {
   #blackBG {
     height: 110%;
     width: 180%; }
-
   .phone-list input {
     width: 67%; }
-
   .phone-ext input {
     width: 20%; }
-
   #padTop {
     width: 50%; } }
+
 @media screen and (max-width: 992px) {
   #padTop {
     left: -1000px;
     width: 100%; }
-
   .overhang {
     width: 100%; }
-
   .instructions, .copyInst, .instructionsForm {
     margin-top: 14%; }
-
   .copyInst {
     margin-top: 0; }
-
   .instructionsForm {
     margin-top: 0; }
-
   #form {
     margin: 0 auto; }
-
   .phone-list input {
     width: 71%; }
-
   .phone-ext input {
     width: 10%; }
-
   .firefox-overlay h1,
   .firefox-overlay a {
     font-size: 42px;
     line-height: 50px; } }
+
 @media screen and (max-width: 767px) {
   .navbar-nav {
     float: right; }
-
   .navbar-title {
     margin-top: 0;
     display: none; }
-
   form {
     width: 100%; }
-
   .instructions, .copyInst, .instructionsForm {
     margin-top: 20%; }
-
   .instructionsForm {
     margin-top: 0; }
-
   .padTop {
     margin-top: 8%; }
-
   #padTop {
     margin-top: 0;
     margin-left: 0;
     padding-left: 40px; }
-
   .copyInst {
     margin-top: 0; }
-
   .phone-ext input {
     width: 15%; }
-
   .firefox-overlay h1,
   .firefox-overlay a {
     font-size: 36px;
     line-height: 42px; } }
+
 @media screen and (max-width: 440px) {
   .phone-list input {
     width: 67%; }
-
   .phone-ext input {
     width: 15%; } }

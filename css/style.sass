@@ -246,7 +246,11 @@ button input
 	+unSelect(none)
 
 .selectable
-	+unSelect(all)
+	-moz-user-select: all
+	-khtml-user-select: all
+	-webkit-user-select: all
+	-ms-user-select: text
+	user-select: all
 
 .instructions
 	margin-top: 10%
@@ -373,7 +377,7 @@ ol
 	color: $ms_blueShade
 
 #error
-	top: -40%
+	top: -60%
 
 #fireBG
 	opacity: 0

@@ -3,6 +3,7 @@ var gulp = require('gulp'),
 	conCat = require('gulp-concat'),
 	jsMinify = require('gulp-minify'),
 	watchmen = require('gulp-watch'),
+	sass = require('gulp-sass'),
 	gutil = require('gulp-util');
 
 var jsSources = [
@@ -28,5 +29,11 @@ gulp.task('minify-js', function(){
 		.pipe(jsMinify({
 			ignoreFiles: ['conversion.js','funcs.js']
 		}))
-		.pipe(gulp.dest('../js/min'))
+		.pipe(gulp.dest('../js/min'));
+});
+
+gulp.task('sass', function () {
+  gulp.src('../css/style.sass')
+    .pipe(sass().on('error', sass.logError))
+    .pipe(gulp.dest('../css'));
 });
