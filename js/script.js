@@ -583,6 +583,7 @@ function init(){
 	}
 	function vidPlay(){
 		vidCont.play();
+		return false;
 	}
 
 	//events
