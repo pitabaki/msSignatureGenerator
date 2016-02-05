@@ -184,10 +184,9 @@ button:hover {
   left: -50%;
   position: absolute;
   padding-top: 60px;
-  padding-left: 100px;
+  padding-left: 40px;
   z-index: 200000;
-  height: 150%;
-  width: 35%;
+  height: 100%;
   background-color: white;
   transition: all 0.5s ease; }
 
@@ -398,8 +397,10 @@ ol li {
     width: 67%; }
   .phone-ext input {
     width: 20%; }
-  #padTop {
-    width: 50%; } }
+  .video-overlay iframe,
+  .video-overlay video,
+  .video-overlay video source {
+    margin-right: 1%; } }
 
 @media screen and (max-width: 992px) {
   #padTop {

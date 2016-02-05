@@ -20,10 +20,10 @@ function init(){
 	'use strict';
 	
 	//email clients(variables)
-	var out10Link = "https://www.meyersound.com/email/email_signature/distribution/video/PC_Outlook10.mp4",
-		out13Link = "https://www.meyersound.com/email/email_signature/distribution/video/PC_Outlook13.mp4",
-		out11Link = "https://www.meyersound.com/email/email_signature/distribution/video/Mac_Outlook11.mp4",
-		macMailLink = "https://www.meyersound.com/email/email_signature/distribution/video/Mac_Mail.mp4";
+	var out10Link = "http://public.msli.com/elements/email_signature/video/PC_Outlook10.mp4",
+		out13Link = "http://public.msli.com/elements/email_signature/video/PC_Outlook13.mp4",
+		out11Link = "http://public.msli.com/elements/email_signature/video/Mac_Outlook11.mp4",
+		macMailLink = "http://public.msli.com/elements/email_signature/video/Mac_Mail.mp4";
 
 	//email clients (objects)
 	var outlook10 = new emailClients("PC Outlook 2010", out10Link, "outlook10"),
@@ -336,7 +336,7 @@ function init(){
 			vidOverlay.style.display = "block";
 					setTimeout(function(){
 						vidIllum(vidCont,"1");
-						vidCont.width = Math.floor(window.innerWidth * 0.35);
+						vidCont.width = Math.floor(window.innerWidth * 0.62);
 						vidCont.height = vidCont.width * 0.5625;
 						vidCont.width = vidCont.width - 1;
 					},50);
@@ -351,13 +351,14 @@ function init(){
 			vidCont.height = vidCont.width * 0.5625;
 			vidCont.width = vidCont.width - 1;
 		}else if(window.innerWidth <= 1200){
-			vidCont.width = Math.floor(window.innerWidth * 0.35);
+			vidCont.width = Math.floor(window.innerWidth * 0.62);
 			vidCont.height = vidCont.width * 0.5625;
 			vidCont.width = vidCont.width - 1;
 		}
 	}
 	function vidPlay(){
 		vidCont.play();
+		return false;
 	}
 
 	//events
